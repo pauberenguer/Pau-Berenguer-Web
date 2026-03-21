@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="d">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crea tu primer agente de IA con Cloud Code — Pau Berenguer</title>
+  <meta name="description" content="Clase gratuita en directo. Construye tu primer agente de IA funcional con Cloud Code, paso a paso, sin saber programar.">
+
+  <!-- Google Fonts — All 4 theme combos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&family=Sora:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+  <!-- Noise Overlay -->
+  <svg class="noise-overlay" xmlns="http://www.w3.org/2000/svg">
+    <filter id="noiseFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#noiseFilter)"/>
+  </svg>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <span class="navbar__logo">Pau Berenguer</span>
+    <div class="navbar__links">
+      <a href="#pain-points" class="navbar__link">El Problema</a>
+      <a href="#philosophy" class="navbar__link">Qué Aprenderás</a>
+      <a href="#details" class="navbar__link">Detalles</a>
+      <a href="#about" class="navbar__link">Sobre Mí</a>
+      <a href="#faq" class="navbar__link">FAQ</a>
+    </div>
+    <a href="#registro-final" class="navbar__cta">
+      <span class="btn-bg"></span>
+      Reserva Tu Plaza Gratis
+    </a>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero__grid">
+      <div class="hero__content">
+        <div class="hero__badge">
+          <span class="pulse-dot"></span>
+          Clase Gratuita en Directo
+        </div>
+        <h1>
+          <span class="hero__title-line1">Deja de Ver Tutoriales de IA.</span>
+          <span class="hero__title-line2">Crea Tu Primer Agente <span class="accent">Conmigo.</span></span>
+        </h1>
+        <p class="hero__subtitle">Este sábado 5 de abril a las 19:00h voy a abrir mi pantalla y vamos a construir juntos, paso a paso, un agente de IA funcional con Cloud Code. Sin saber programar. Sin experiencia previa.</p>
+      </div>
+      <div class="hero__form-side">
+        <div id="hero-form" data-component="registration-form" data-variant="hero" class="hero__form-container"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PAIN POINTS ========== -->
+  <section class="section pain-points" id="pain-points">
+    <div class="container">
+      <div class="section__badge reveal"><span class="badge-dot"></span>El Problema</div>
+      <h2 class="section__title reveal">¿Te Suena Esto?</h2>
+      <p class="section__subtitle reveal">No es culpa tuya. El problema es que nadie te ha enseñado a construir algo real, paso a paso.</p>
+
+      <div class="cards-grid">
+        <!-- Card 1: Diagnostic Shuffler -->
+        <div class="feature-card reveal" id="card-shuffler">
+          <div class="feature-card__header">
+            <h3 class="feature-card__title">Parálisis por Exceso</h3>
+            <p class="feature-card__desc">Demasiadas herramientas, tutoriales y opciones. Cada semana algo nuevo.</p>
+          </div>
+          <div class="feature-card__body">
+            <div class="shuffler-stack" id="shuffler">
+              <div class="shuffler-card" data-index="0">
+                <span class="shuffler-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+                <span>Llevas meses viendo vídeos de IA pero no has creado nada real</span>
+              </div>
+              <div class="shuffler-card" data-index="1">
+                <span class="shuffler-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></span>
+                <span>Cada semana sale una herramienta nueva y estás más perdido</span>
+              </div>
+              <div class="shuffler-card" data-index="2">
+                <span class="shuffler-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+                <span>La información está por todos lados y nunca terminas nada</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Telemetry Typewriter -->
+        <div class="feature-card reveal" id="card-typewriter">
+          <div class="feature-card__header">
+            <h3 class="feature-card__title">El Bucle del Consumidor</h3>
+            <p class="feature-card__desc">Tutorial tras tutorial, sin construir nada real.</p>
+          </div>
+          <div class="feature-card__body">
+            <div class="typewriter-feed" id="typewriter">
+              <div class="typewriter-feed__label">
+                <span class="live-dot"></span>
+                Feed en Vivo
+              </div>
+              <div class="typewriter-feed__text" id="typewriter-text"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Cursor Protocol Scheduler -->
+        <div class="feature-card reveal" id="card-scheduler">
+          <div class="feature-card__header">
+            <h3 class="feature-card__title">Agenda Tu Cambio</h3>
+            <p class="feature-card__desc">Un directo. Una hora. Tu primer agente de IA.</p>
+          </div>
+          <div class="feature-card__body">
+            <div class="scheduler-grid" id="scheduler">
+              <svg class="scheduler-cursor" id="scheduler-cursor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 3L19 12L12 13.5L9 21L5 3Z" fill="var(--color-accent)" stroke="var(--color-dark)" stroke-width="1"/>
+              </svg>
+              <div class="scheduler-days">
+                <span class="scheduler-day-label">L</span>
+                <span class="scheduler-day-label">M</span>
+                <span class="scheduler-day-label">X</span>
+                <span class="scheduler-day-label">J</span>
+                <span class="scheduler-day-label">V</span>
+                <span class="scheduler-day-label">S</span>
+                <span class="scheduler-day-label">D</span>
+                <span class="scheduler-day" data-day="1">7</span>
+                <span class="scheduler-day" data-day="2">8</span>
+                <span class="scheduler-day" data-day="3">9</span>
+                <span class="scheduler-day" data-day="4">10</span>
+                <span class="scheduler-day" data-day="5">11</span>
+                <span class="scheduler-day" data-day="6">12</span>
+                <span class="scheduler-day" data-day="7">13</span>
+              </div>
+              <button class="scheduler-save-btn" id="scheduler-save">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Guardar en Calendario
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PHILOSOPHY / WHAT YOU'LL LEARN ========== -->
+  <section class="section philosophy dark-section" id="philosophy">
+    <div class="philosophy__texture" id="philosophy-texture"></div>
+    <div class="container philosophy__content">
+      <div class="section__badge section__badge--light reveal"><span class="badge-dot"></span>Lo Que Vas a Aprender</div>
+      <p class="philosophy__small reveal">La mayoría sigue consumiendo tutoriales. Acumula herramientas. Cambia de curso cada semana.</p>
+      <h2 class="philosophy__big reveal">Nosotros <span class="accent">construimos</span> agentes de IA. En directo.</h2>
+
+      <div class="philosophy__bullets">
+        <div class="philosophy__bullet reveal">
+          <span class="philosophy__bullet-icon">01</span>
+          <span class="philosophy__bullet-text"><strong>Cloud Code al Descubierto:</strong> qué es y por qué es la herramienta que lo está cambiando todo en 2026.</span>
+        </div>
+        <div class="philosophy__bullet reveal">
+          <span class="philosophy__bullet-icon">02</span>
+          <span class="philosophy__bullet-text"><strong>Agente Desde Cero:</strong> cómo crear un agente de IA funcional, paso a paso, en tiempo real.</span>
+        </div>
+        <div class="philosophy__bullet reveal">
+          <span class="philosophy__bullet-icon">03</span>
+          <span class="philosophy__bullet-text"><strong>Aplicación en Tu Negocio:</strong> cómo usarlo para automatizar tareas que hoy te llevan horas.</span>
+        </div>
+        <div class="philosophy__bullet reveal">
+          <span class="philosophy__bullet-icon">04</span>
+          <span class="philosophy__bullet-text"><strong>Monetización:</strong> cómo vender esto como servicio a empresas por 1.500 - 2.000 EUR.</span>
+        </div>
+        <div class="philosophy__bullet reveal">
+          <span class="philosophy__bullet-icon">05</span>
+          <span class="philosophy__bullet-text"><strong>Sesión de Q&A:</strong> preguntas y respuestas en vivo. Pregúntame lo que quieras.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DETAILS ========== -->
+  <section class="section details" id="details">
+    <div class="container">
+      <div class="section__badge reveal"><span class="badge-dot"></span>Detalles del Directo</div>
+      <h2 class="section__title reveal">Todo Lo Que Necesitas Saber</h2>
+      <p class="section__subtitle reveal">No es un vídeo pregrabado. No es un webinar donde te vendo algo durante 40 minutos. Es un directo real donde construimos algo juntos.</p>
+
+      <div class="details__grid">
+        <div class="details__item reveal">
+          <div class="details__item-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div class="details__item-label">Fecha</div>
+          <div class="details__item-value" id="detail-date">Sábado, 5 de Abril</div>
+        </div>
+        <div class="details__item reveal">
+          <div class="details__item-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="details__item-label">Hora</div>
+          <div class="details__item-value" id="detail-time">19:00h España</div>
+        </div>
+        <div class="details__item reveal">
+          <div class="details__item-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="details__item-label">Dónde</div>
+          <div class="details__item-value">Online, en Directo</div>
+        </div>
+        <div class="details__item reveal">
+          <div class="details__item-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <div class="details__item-label">Precio</div>
+          <div class="details__item-value" style="color: var(--color-accent);">GRATIS</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW IT WORKS — Stacking Cards ========== -->
+  <section class="section stacking-section" id="how-it-works">
+    <div class="container">
+      <div class="section__badge reveal"><span class="badge-dot"></span>Cómo Funciona</div>
+      <h2 class="section__title reveal">3 Pasos. 1 Hora. Tu Primer Agente.</h2>
+    </div>
+
+    <div class="stacking-card" id="stack-card-1">
+      <div class="stacking-card__inner">
+        <div>
+          <span class="stacking-card__step">Paso 01</span>
+          <h3 class="stacking-card__title">Regístrate Gratis</h3>
+          <p class="stacking-card__desc">Solo necesitas tu nombre y email. Te enviaremos el enlace de acceso al directo antes de la clase. Sin compromisos, sin tarjeta.</p>
+        </div>
+        <div class="stacking-card__visual">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <g class="rotating-motif">
+              <circle cx="100" cy="100" r="70" fill="none" stroke="var(--color-accent)" stroke-width="1" opacity="0.3"/>
+              <circle cx="100" cy="100" r="50" fill="none" stroke="var(--color-accent)" stroke-width="1" opacity="0.5"/>
+              <circle cx="100" cy="100" r="30" fill="none" stroke="var(--color-accent)" stroke-width="2" opacity="0.8"/>
+              <line x1="100" y1="20" x2="100" y2="180" stroke="var(--color-accent)" stroke-width="0.5" opacity="0.2"/>
+              <line x1="20" y1="100" x2="180" y2="100" stroke="var(--color-accent)" stroke-width="0.5" opacity="0.2"/>
+              <line x1="40" y1="40" x2="160" y2="160" stroke="var(--color-accent)" stroke-width="0.5" opacity="0.2"/>
+              <line x1="160" y1="40" x2="40" y2="160" stroke="var(--color-accent)" stroke-width="0.5" opacity="0.2"/>
+              <circle cx="100" cy="30" r="4" fill="var(--color-accent)" opacity="0.8"/>
+              <circle cx="100" cy="170" r="4" fill="var(--color-accent)" opacity="0.8"/>
+              <circle cx="30" cy="100" r="4" fill="var(--color-accent)" opacity="0.8"/>
+              <circle cx="170" cy="100" r="4" fill="var(--color-accent)" opacity="0.8"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="stacking-card" id="stack-card-2">
+      <div class="stacking-card__inner">
+        <div>
+          <span class="stacking-card__step">Paso 02</span>
+          <h3 class="stacking-card__title">Conéctate al Directo</h3>
+          <p class="stacking-card__desc">Abre tu ordenador, entra al enlace y sígueme en tiempo real. Vamos a construir juntos, yo comparto mi pantalla y tú replicas a tu ritmo.</p>
+        </div>
+        <div class="stacking-card__visual">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="laser-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:var(--color-accent);stop-opacity:0"/>
+                <stop offset="50%" style="stop-color:var(--color-accent);stop-opacity:1"/>
+                <stop offset="100%" style="stop-color:var(--color-accent);stop-opacity:0"/>
+              </linearGradient>
+            </defs>
+            <g opacity="0.2">
+              <line x1="20" y1="40" x2="180" y2="40" stroke="var(--color-accent)" stroke-width="0.5"/>
+              <line x1="20" y1="70" x2="180" y2="70" stroke="var(--color-accent)" stroke-width="0.5"/>
+              <line x1="20" y1="100" x2="180" y2="100" stroke="var(--color-accent)" stroke-width="0.5"/>
+              <line x1="20" y1="130" x2="180" y2="130" stroke="var(--color-accent)" stroke-width="0.5"/>
+              <line x1="20" y1="160" x2="180" y2="160" stroke="var(--color-accent)" stroke-width="0.5"/>
+              <line x1="40" y1="20" x2="40" y2="180" stroke="var(--color-accent)" stroke-width="0.5"/>
+              <line x1="70" y1="20" x2="70" y2="180" stroke="var(--color-accent)" stroke-width="0.5"/>
+              <line x1="100" y1="20" x2="100" y2="180" stroke="var(--color-accent)" stroke-width="0.5"/>
+              <line x1="130" y1="20" x2="130" y2="180" stroke="var(--color-accent)" stroke-width="0.5"/>
+              <line x1="160" y1="20" x2="160" y2="180" stroke="var(--color-accent)" stroke-width="0.5"/>
+            </g>
+            <g class="laser-line">
+              <rect x="10" y="96" width="180" height="4" rx="2" fill="url(#laser-grad)"/>
+            </g>
+            <g opacity="0.5">
+              <circle cx="40" cy="40" r="2" fill="var(--color-accent)"/>
+              <circle cx="70" cy="70" r="2" fill="var(--color-accent)"/>
+              <circle cx="100" cy="100" r="3" fill="var(--color-accent)"/>
+              <circle cx="130" cy="130" r="2" fill="var(--color-accent)"/>
+              <circle cx="160" cy="160" r="2" fill="var(--color-accent)"/>
+              <circle cx="70" cy="130" r="2" fill="var(--color-accent)"/>
+              <circle cx="130" cy="70" r="2" fill="var(--color-accent)"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="stacking-card" id="stack-card-3">
+      <div class="stacking-card__inner">
+        <div>
+          <span class="stacking-card__step">Paso 03</span>
+          <h3 class="stacking-card__title">Construye Tu Agente</h3>
+          <p class="stacking-card__desc">Al terminar la clase tendrás un agente de IA funcional. Algo real. Algo que puedes usar en tu negocio o vender como servicio.</p>
+        </div>
+        <div class="stacking-card__visual">
+          <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+            <path class="waveform-path" d="M10,25 Q20,5 30,25 Q40,45 50,25 Q60,5 70,25 Q80,45 90,25 Q100,5 110,25 Q120,45 130,25 Q140,5 150,25 Q160,45 170,25 Q180,5 190,25" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M10,25 Q20,15 30,25 Q40,35 50,25 Q60,15 70,25 Q80,35 90,25 Q100,15 110,25 Q120,35 130,25 Q140,15 150,25 Q160,35 170,25 Q180,15 190,25" fill="none" stroke="var(--color-accent)" stroke-width="1" opacity="0.3"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT PAU ========== -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section__badge reveal"><span class="badge-dot"></span>¿Quién Soy?</div>
+      <h2 class="section__title reveal">Pau Berenguer</h2>
+
+      <div class="about__grid">
+        <div class="about__photo reveal">
+          <img src="pau-berenguer.JPG" alt="Pau Berenguer" style="width:100%;height:100%;object-fit:cover;border-radius:2rem;">
+        </div>
+
+        <div>
+          <p class="about__bio reveal">
+            Llevo tiempo analizando, probando y aplicando herramientas de IA en proyectos reales. Tengo una comunidad de <strong>más de 7.300 personas</strong> aprendiendo sobre inteligencia artificial, automatizaciones y vibe coding. Soy fundador de <strong>BotDesk</strong>, <strong>The AI Blueprint</strong> y creo contenido en YouTube sobre IA aplicada.
+          </p>
+          <p class="about__bio reveal">
+            No soy el típico que repite tendencias. Lo que comparto lo pruebo primero. Si funciona, lo enseño. Si no, te lo digo también.
+          </p>
+
+          <div class="about__metrics reveal">
+            <div class="about__metric">
+              <div class="about__metric-value">+7.300</div>
+              <div class="about__metric-label">Alumnos</div>
+            </div>
+            <div class="about__metric">
+              <div class="about__metric-value">3</div>
+              <div class="about__metric-label">Empresas de IA</div>
+            </div>
+            <div class="about__metric">
+              <div class="about__metric-value">+200</div>
+              <div class="about__metric-label">Plantillas</div>
+            </div>
+          </div>
+
+          <blockquote class="about__quote reveal">
+            "Este directo es la clase que a mí me hubiera gustado tener cuando empecé: alguien que se sienta contigo, abra la pantalla y te diga 'hazlo conmigo'."
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOR YOU / NOT FOR YOU ========== -->
+  <section class="section for-you" id="for-you">
+    <div class="container">
+      <div class="section__badge reveal"><span class="badge-dot"></span>¿Es Para Ti?</div>
+      <h2 class="section__title reveal">Antes de Registrarte, Léete Esto</h2>
+
+      <div class="for-you__grid">
+        <div class="for-you__col reveal">
+          <h3 class="for-you__col-title">
+            <span class="icon-yes">✓</span> Esto Es Para Ti Si:
+          </h3>
+          <div class="for-you__item">
+            <span class="for-you__item-icon yes">✓</span>
+            <span>Te interesa la IA pero sientes que no avanzas solo con tutoriales</span>
+          </div>
+          <div class="for-you__item">
+            <span class="for-you__item-icon yes">✓</span>
+            <span>Quieres crear algo real que puedas usar en tu negocio o vender</span>
+          </div>
+          <div class="for-you__item">
+            <span class="for-you__item-icon yes">✓</span>
+            <span>No sabes programar pero quieres aprender Cloud Code</span>
+          </div>
+          <div class="for-you__item">
+            <span class="for-you__item-icon yes">✓</span>
+            <span>Estás cansado de acumular información sin aplicar nada</span>
+          </div>
+        </div>
+
+        <div class="for-you__col reveal">
+          <h3 class="for-you__col-title">
+            <span class="icon-no">✕</span> Esto NO Es Para Ti Si:
+          </h3>
+          <div class="for-you__item">
+            <span class="for-you__item-icon no">✕</span>
+            <span>Buscas otro vídeo teórico que ver luego y olvidar</span>
+          </div>
+          <div class="for-you__item">
+            <span class="for-you__item-icon no">✕</span>
+            <span>No estás dispuesto a abrir tu ordenador y hacer el ejercicio</span>
+          </div>
+          <div class="for-you__item">
+            <span class="for-you__item-icon no">✕</span>
+            <span>Ya eres experto en agentes de IA y Cloud Code</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <div class="section__badge reveal"><span class="badge-dot"></span>Preguntas Frecuentes</div>
+      <h2 class="section__title reveal">Resolvamos Tus Dudas</h2>
+
+      <div class="faq__list">
+        <div class="faq__item reveal">
+          <div class="faq__question">
+            <span>¿Necesito saber programar?</span>
+            <span class="faq__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </div>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">No. El directo está pensado para personas sin experiencia técnica. Te guío paso a paso.</div>
+          </div>
+        </div>
+
+        <div class="faq__item reveal">
+          <div class="faq__question">
+            <span>¿Es realmente gratis?</span>
+            <span class="faq__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </div>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">Sí, 100% gratis. Sin trucos. Solo regístrate y conéctate el día del directo.</div>
+          </div>
+        </div>
+
+        <div class="faq__item reveal">
+          <div class="faq__question">
+            <span>¿Se va a grabar?</span>
+            <span class="faq__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </div>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">El directo es en vivo y la grabación no estará disponible después. Si quieres verlo, tienes que estar en directo.</div>
+          </div>
+        </div>
+
+        <div class="faq__item reveal">
+          <div class="faq__question">
+            <span>¿Qué necesito para participar?</span>
+            <span class="faq__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </div>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">Un ordenador con conexión a internet. Te enviaré las instrucciones por email antes del directo.</div>
+          </div>
+        </div>
+
+        <div class="faq__item reveal">
+          <div class="faq__question">
+            <span>¿Qué pasa si no puedo asistir?</span>
+            <span class="faq__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </div>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">Regístrate igualmente. Si no puedes estar, te avisaremos del próximo. Pero la oferta exclusiva es solo para los que asistan en vivo.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FINAL CTA ========== -->
+  <section class="final-cta" id="registro-final">
+    <div class="container">
+      <div class="final-cta__grid">
+        <div class="final-cta__text">
+          <div class="final-cta__badge reveal">
+            <span class="pulse-dot"></span>
+            Plazas Limitadas — Una Vez Se Llenen, Se Cierra el Registro
+          </div>
+          <h2 class="final-cta__title reveal">No Te Quedes Viendo Cómo Otros Avanzan.</h2>
+          <p class="final-cta__subtitle reveal">Tienes la oportunidad de crear algo real con IA. En directo. Conmigo. Gratis.</p>
+          <div class="final-cta__badge reveal">
+            Es en directo y quiero poder atender a todos
+          </div>
+        </div>
+        <div class="final-cta__form-side reveal">
+          <div id="cta-form" data-component="registration-form" data-variant="dark"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__row">
+        <div class="footer__copy">
+          Pau Berenguer &copy; 2026 · Todos los Derechos Reservados · <a href="#">Política de Privacidad</a>
+        </div>
+        <div class="footer__social" id="footer-social" data-component="social-links"></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== THEME SWITCHER (preview) ========== -->
+  <div class="theme-switcher" id="theme-switcher">
+    <span class="theme-switcher__label">Tema</span>
+    <button class="theme-switcher__btn" data-theme="a" aria-label="Organic Tech">
+      <span class="theme-switcher__btn-label">Organic Tech</span>
+    </button>
+    <button class="theme-switcher__btn" data-theme="b" aria-label="Midnight Luxe">
+      <span class="theme-switcher__btn-label">Midnight Luxe</span>
+    </button>
+    <button class="theme-switcher__btn" data-theme="c" aria-label="Brutalist Signal">
+      <span class="theme-switcher__btn-label">Brutalist Signal</span>
+    </button>
+    <button class="theme-switcher__btn active" data-theme="d" aria-label="Vapor Clinic">
+      <span class="theme-switcher__btn-label">Vapor Clinic</span>
+    </button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/components.js"></script>
+  <script src="js/theme-switcher.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

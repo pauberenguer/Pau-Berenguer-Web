@@ -192,16 +192,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const typewriterEl = document.getElementById('typewriter-text');
   if (typewriterEl) {
     const messages = [
-      '> Probando ChatGPT... otra vez...',
-      '> Vídeo de N8N: "Automatiza todo en 10 min"',
-      '> ERROR: No sé por dónde empezar',
-      '> Descargando curso #47 de IA...',
-      '> Tutorial completado. Resultado: ninguno.',
-      '> Nueva herramienta: ¿otra vez?',
-      '> Buscando: "cómo monetizar IA 2026"',
-      '> Cursor, Claude, ChatGPT, N8N... ¿cuál uso?',
-      '> WARNING: Parálisis por análisis detectada',
-      '> SOLUCIÓN: Clase en directo con Pau →'
+      '> Probando ChatGPT... otra vez... sin resultados claros',
+      '> Vídeo de N8N: "Automatiza todo en 10 min" — mentira',
+      '> ERROR: No sé por dónde empezar con tantas opciones',
+      '> Descargando curso #47 de IA... este sí será el bueno',
+      '> Tutorial completado. Resultado: ninguno. Como siempre.',
+      '> Nueva herramienta de IA: ¿otra vez? Ya van 15 este mes',
+      '> Buscando: "cómo monetizar IA en 2026 sin perder tiempo"',
+      '> Cursor, Claude, ChatGPT, N8N... ¿cuál uso para empezar?',
+      '> WARNING: Parálisis por análisis detectada en el sistema',
+      '> SOLUCIÓN: Clase en directo con Pau — Regístrate gratis →'
     ];
 
     let msgIndex = 0;
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(typeChar, 30 + Math.random() * 40);
       } else {
         lines.push(currentLine);
-        if (lines.length > 5) lines.shift();
+        if (lines.length > 3) lines.shift();
         currentLine = '';
         charIndex = 0;
         msgIndex = (msgIndex + 1) % messages.length;
@@ -226,9 +226,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderTypewriter() {
-      const prevLines = lines.map(l => `<span style="opacity:0.5">${l}</span>`).join('<br>');
-      const current = currentLine + '<span class="typewriter-cursor"></span>';
-      typewriterEl.innerHTML = (prevLines ? prevLines + '<br>' : '') + current;
+      let slots = '';
+      slots += lines.map(l => `<div style="opacity:0.5">${l}</div>`).join('');
+      slots += '<div>' + currentLine + '<span class="typewriter-cursor"></span></div>';
+      for (let i = 0; i < 3 - lines.length; i++) {
+        slots += '<div></div>';
+      }
+      typewriterEl.innerHTML = slots;
     }
 
     setTimeout(typeChar, 1000);
@@ -242,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cursor = document.getElementById('scheduler-cursor');
     const days = schedulerEl.querySelectorAll('.scheduler-day');
     const saveBtn = document.getElementById('scheduler-save');
-    const targetDay = days[3];
+    const targetDay = days[5];
 
     function runSchedulerAnimation() {
       days.forEach(d => d.classList.remove('active'));
@@ -257,6 +261,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const dayX = dayRect.left - schedulerRect.left + dayRect.width / 2;
       const dayY = dayRect.top - schedulerRect.top + dayRect.height / 2;
 
+      const saveBtnRect = saveBtn.getBoundingClientRect();
+      const saveBtnX = saveBtnRect.left - schedulerRect.left + saveBtnRect.width / 2;
+      const saveBtnY = saveBtnRect.top - schedulerRect.top + saveBtnRect.height / 2;
+
       tl.set(cursor, { x: startX, y: startY, opacity: 0 })
         .to(cursor, { opacity: 1, duration: 0.3 })
         .to(cursor, { x: dayX, y: dayY, duration: 0.8, ease: 'power2.inOut' })
@@ -264,8 +272,8 @@ document.addEventListener('DOMContentLoaded', () => {
         .to(targetDay, { scale: 1, duration: 0.2 }, '+=0.05')
         .call(() => { targetDay.classList.add('active'); })
         .to(cursor, {
-          x: saveBtn ? saveBtn.offsetLeft + saveBtn.offsetWidth / 2 : dayX,
-          y: saveBtn ? saveBtn.offsetTop + saveBtn.offsetHeight / 2 : dayY + 60,
+          x: saveBtnX,
+          y: saveBtnY,
           duration: 0.6,
           ease: 'power2.inOut'
         }, '+=0.3')
@@ -290,6 +298,19 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  /* ------------------------------------------------
+     HASH NAVIGATION — Scroll to section on page load
+     ------------------------------------------------ */
+  if (window.location.hash) {
+    const hashTarget = document.querySelector(window.location.hash);
+    if (hashTarget) {
+      window.scrollTo(0, 0);
+      setTimeout(() => {
+        hashTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 600);
+    }
+  }
 
   /* ------------------------------------------------
      FORM — Prevent default (placeholder for GHL)

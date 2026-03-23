@@ -40,7 +40,7 @@ const Components = {
     },
     {
       name: 'Skool',
-      url: 'https://www.skool.com/the-ai-blueprint-plus',
+      url: 'https://www.skool.com/the-ai-blueprint',
       svg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>'
     }
   ],
@@ -50,8 +50,7 @@ const Components = {
     if (!container) return;
 
     const isHero = variant === 'hero';
-    const isDark = variant === 'dark';
-    const formClass = isHero ? 'reg-form reg-form--hero' : isDark ? 'reg-form reg-form--dark' : 'reg-form';
+    const formClass = isHero ? 'reg-form reg-form--hero' : 'reg-form';
 
     const optionsHTML = this.COUNTRY_CODES.map(c =>
       `<option value="${c.code}" ${c.code === '+34' ? 'selected' : ''}>${c.label}</option>`
@@ -78,27 +77,32 @@ const Components = {
           <span class="btn-bg"></span>
           <span class="reg-form__submit-text">Reserva Tu Plaza Gratis</span>
         </button>
+        <p class="reg-form__consent">Al registrarte aceptas nuestra <a href="politica-privacidad.html" target="_blank">Política de Privacidad</a> y <a href="terminos.html" target="_blank">Términos y Condiciones</a>.</p>
       </form>
     `;
 
     const form = container.querySelector('form');
-    if (form.action.includes('TU_WEBHOOK_GHL_AQUI')) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const btn = form.querySelector('.reg-form__submit');
-        const textEl = form.querySelector('.reg-form__submit-text');
-        const original = textEl.textContent;
-        textEl.textContent = 'Registrado -- Te enviaremos el enlace';
-        btn.style.opacity = '0.7';
-        btn.disabled = true;
-        setTimeout(() => {
-          textEl.textContent = original;
-          btn.style.opacity = '1';
-          btn.disabled = false;
-          form.reset();
-        }, 3000);
-      });
-    }
+    const isPlaceholder = form.action.includes('TU_WEBHOOK_GHL_AQUI');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('.reg-form__submit');
+      const textEl = form.querySelector('.reg-form__submit-text');
+      btn.disabled = true;
+      textEl.textContent = 'Registrando...';
+
+      if (isPlaceholder) {
+        setTimeout(() => { window.location.href = 'gracias.html'; }, 600);
+      } else {
+        const formData = new FormData(form);
+        fetch(form.action, {
+          method: 'POST',
+          body: formData
+        })
+        .then(() => { window.location.href = 'gracias.html'; })
+        .catch(() => { window.location.href = 'gracias.html'; });
+      }
+    });
   },
 
   createSocialLinks(containerId) {

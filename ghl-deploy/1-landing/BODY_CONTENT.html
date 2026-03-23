@@ -1,0 +1,1138 @@
+<!--
+  GHL — Contenido del body (landing principal)
+  Pegar en: elemento Custom JS/HTML del funnel GoHighLevel.
+  Incluye: markup + scripts inline. Sin CSS (Custom CSS aparte).
+  Sin <head>: fuentes y GSAP van en Header Tracking Code.
+  Enlaces internos sin .html (rutas de funnel GHL).
+-->
+
+<script>
+(function(){
+  var t; try { t = localStorage.getItem('pau-theme') || 'd'; } catch(e) { t = 'd'; }
+  document.documentElement.setAttribute('data-theme', t);
+  if (typeof gsap === 'undefined') {
+    var s1 = document.createElement('script');
+    s1.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+    document.head.appendChild(s1);
+    var s2 = document.createElement('script');
+    s2.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
+    document.head.appendChild(s2);
+  }
+})();
+</script>
+
+  <!-- Noise Overlay -->
+  <svg class="noise-overlay" xmlns="http://www.w3.org/2000/svg">
+    <filter id="noiseFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#noiseFilter)"/>
+  </svg>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <span class="navbar__logo">Pau Berenguer</span>
+    <div class="navbar__links">
+      <a href="#pain-points" class="navbar__link">El Problema</a>
+      <a href="#philosophy" class="navbar__link">Qué Aprenderás</a>
+      <a href="#details" class="navbar__link">Detalles</a>
+      <a href="#about" class="navbar__link">Sobre Mí</a>
+      <a href="#faq" class="navbar__link">FAQ</a>
+    </div>
+    <a href="#registro-final" class="navbar__cta">
+      <span class="btn-bg"></span>
+      Reserva Tu Plaza Gratis
+    </a>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero__grid">
+      <div class="hero__content">
+        <div class="hero__badge">
+          <span class="pulse-dot"></span>
+          Clase Gratuita en Directo
+        </div>
+        <h1>
+          <span class="hero__title-line1">Deja de Ver Tutoriales de IA.</span>
+          <span class="hero__title-line2">Crea Tu Primer Agente <span class="accent">Conmigo.</span></span>
+        </h1>
+        <p class="hero__subtitle">Este sábado 5 de abril a las 19:00h vamos a construir juntos, paso a paso, un agente de IA funcional con N8N. Sin saber programar. Sin experiencia previa.</p>
+      </div>
+      <div class="hero__form-side">
+        <div id="hero-form" data-component="registration-form" data-variant="hero" class="hero__form-container"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PAIN POINTS ========== -->
+  <section class="section pain-points" id="pain-points">
+    <div class="container">
+      <div class="section__badge reveal"><span class="badge-dot"></span>El Problema</div>
+      <h2 class="section__title reveal">¿Te Suena Esto?</h2>
+      <p class="section__subtitle reveal">No es culpa tuya. El problema es que nadie te ha enseñado a construir algo real, paso a paso. Mientras tanto, sigues acumulando herramientas.</p>
+
+      <div class="cards-grid">
+        <!-- Card 1: Diagnostic Shuffler -->
+        <div class="feature-card reveal" id="card-shuffler">
+          <div class="feature-card__header">
+            <h3 class="feature-card__title">Parálisis por Exceso</h3>
+            <p class="feature-card__desc">Demasiadas herramientas, tutoriales y opciones.</p>
+          </div>
+          <div class="feature-card__body">
+            <div class="shuffler-stack" id="shuffler">
+              <div class="shuffler-card" data-index="0">
+                <span class="shuffler-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+                <span>Llevas meses viendo vídeos de IA pero no has creado nada real</span>
+              </div>
+              <div class="shuffler-card" data-index="1">
+                <span class="shuffler-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></span>
+                <span>Cada semana sale una herramienta nueva y estás más perdido</span>
+              </div>
+              <div class="shuffler-card" data-index="2">
+                <span class="shuffler-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+                <span>La información está por todos lados y nunca terminas nada</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Telemetry Typewriter -->
+        <div class="feature-card reveal" id="card-typewriter">
+          <div class="feature-card__header">
+            <h3 class="feature-card__title">El Bucle del Consumidor</h3>
+            <p class="feature-card__desc">Tutorial tras tutorial, sin construir nada real.</p>
+          </div>
+          <div class="feature-card__body">
+            <div class="typewriter-feed" id="typewriter">
+              <div class="typewriter-feed__label">
+                <span class="live-dot"></span>
+                Feed en Vivo
+              </div>
+              <div class="typewriter-feed__text" id="typewriter-text"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Cursor Protocol Scheduler -->
+        <div class="feature-card reveal" id="card-scheduler">
+          <div class="feature-card__header">
+            <h3 class="feature-card__title">Agenda Tu Cambio</h3>
+            <p class="feature-card__desc">Un directo. Una hora. Tu primer agente de IA.</p>
+          </div>
+          <div class="feature-card__body">
+            <div class="scheduler-grid" id="scheduler">
+              <svg class="scheduler-cursor" id="scheduler-cursor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 3L19 12L12 13.5L9 21L5 3Z" fill="var(--color-accent)" stroke="var(--color-dark)" stroke-width="1"/>
+              </svg>
+              <div class="scheduler-days">
+                <span class="scheduler-day-label">L</span>
+                <span class="scheduler-day-label">M</span>
+                <span class="scheduler-day-label">X</span>
+                <span class="scheduler-day-label">J</span>
+                <span class="scheduler-day-label">V</span>
+                <span class="scheduler-day-label">S</span>
+                <span class="scheduler-day-label">D</span>
+                <span class="scheduler-day" data-day="1">31</span>
+                <span class="scheduler-day" data-day="2">1</span>
+                <span class="scheduler-day" data-day="3">2</span>
+                <span class="scheduler-day" data-day="4">3</span>
+                <span class="scheduler-day" data-day="5">4</span>
+                <span class="scheduler-day" data-day="6">5</span>
+                <span class="scheduler-day" data-day="7">6</span>
+              </div>
+              <button class="scheduler-save-btn" id="scheduler-save">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Guardar en Calendario
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PHILOSOPHY / WHAT YOU'LL LEARN ========== -->
+  <section class="section philosophy dark-section" id="philosophy">
+    <div class="philosophy__texture" id="philosophy-texture"></div>
+    <div class="container philosophy__content">
+      <div class="section__badge section__badge--light reveal"><span class="badge-dot"></span>Lo Que Vas a Aprender</div>
+      <h2 class="philosophy__big reveal">Nosotros <span class="accent">Construimos</span> Agentes de&nbsp;IA</h2>
+      <p class="philosophy__small reveal">La mayoría sigue consumiendo tutoriales. Acumula herramientas. Cambia de curso cada semana. Nosotros construimos cosas reales.</p>
+
+      <div class="philosophy__bullets">
+        <div class="philosophy__bullet reveal">
+          <span class="philosophy__bullet-icon">01</span>
+          <span class="philosophy__bullet-text"><strong>N8N al Descubierto</strong><br>Qué es, cómo funciona y por qué es la herramienta de automatización que lo está cambiando todo en 2026.</span>
+        </div>
+        <div class="philosophy__bullet reveal">
+          <span class="philosophy__bullet-icon">02</span>
+          <span class="philosophy__bullet-text"><strong>Tu Primer Agente en Directo</strong><br>Vamos a construir juntos un agente de IA desde cero, paso a paso, en tiempo real. Tú replicas en tu ordenador.</span>
+        </div>
+        <div class="philosophy__bullet reveal">
+          <span class="philosophy__bullet-icon">03</span>
+          <span class="philosophy__bullet-text"><strong>Sesión de Q&amp;A en Vivo</strong><br>Respondo tus dudas en directo. Sin filtros, sin guion. Pregúntame lo que quieras sobre IA y automatización.</span>
+        </div>
+        <div class="philosophy__bullet reveal">
+          <span class="philosophy__bullet-icon">04</span>
+          <span class="philosophy__bullet-text"><strong>Plantilla Lista para Usar</strong><br>Todos los asistentes recibirán la plantilla exacta del agente que construyamos. Solo tienes que copiarla y adaptarla a tu caso.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DETAILS ========== -->
+  <section class="section details" id="details">
+    <div class="container">
+      <div class="section__badge reveal"><span class="badge-dot"></span>Detalles del Directo</div>
+      <h2 class="section__title reveal">Todo Lo Que Necesitas Saber</h2>
+      <p class="section__subtitle reveal">No es un vídeo pregrabado. No es un webinar donde te vendo algo durante 40 minutos. Es un directo real donde construimos algo juntos.</p>
+
+      <div class="details__grid">
+        <div class="details__item reveal">
+          <div class="details__item-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div class="details__item-label">Fecha</div>
+          <div class="details__item-value" id="detail-date">Sábado, 5 de Abril</div>
+        </div>
+        <div class="details__item reveal">
+          <div class="details__item-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="details__item-label">Hora</div>
+          <div class="details__item-value" id="detail-time">19:00h España</div>
+        </div>
+        <div class="details__item reveal">
+          <div class="details__item-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="details__item-label">Dónde</div>
+          <div class="details__item-value">Online, en Directo</div>
+        </div>
+        <div class="details__item reveal">
+          <div class="details__item-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <div class="details__item-label">Precio</div>
+          <div class="details__item-value" style="color: var(--color-accent);">GRATIS</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW IT WORKS — Stacking Cards ========== -->
+  <section class="section stacking-section" id="how-it-works">
+    <div class="container">
+      <div class="section__badge reveal"><span class="badge-dot"></span>Cómo Funciona</div>
+      <h2 class="section__title reveal">3 Pasos. 1 Hora. Tu Primer Agente.</h2>
+      <p class="section__subtitle reveal">Sin rodeos. Te registras, te conectas y construyes tu agente de IA conmigo en tiempo real. Así de simple, así de directo.</p>
+    </div>
+
+    <div class="stacking-card" id="stack-card-1">
+      <div class="stacking-card__inner">
+        <div>
+          <span class="stacking-card__step">Paso 01</span>
+          <h3 class="stacking-card__title">Regístrate Gratis</h3>
+          <p class="stacking-card__desc">Solo necesitas tu nombre y email. Te enviaremos el enlace de acceso al directo antes de la clase. Sin compromisos, sin tarjeta.</p>
+        </div>
+        <div class="stacking-card__visual">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <g class="rotating-motif">
+              <circle cx="100" cy="100" r="70" fill="none" stroke="var(--color-accent)" stroke-width="1" opacity="0.3"/>
+              <circle cx="100" cy="100" r="50" fill="none" stroke="var(--color-accent)" stroke-width="1" opacity="0.5"/>
+              <circle cx="100" cy="100" r="30" fill="none" stroke="var(--color-accent)" stroke-width="2" opacity="0.8"/>
+              <line x1="100" y1="20" x2="100" y2="180" stroke="var(--color-accent)" stroke-width="0.5" opacity="0.2"/>
+              <line x1="20" y1="100" x2="180" y2="100" stroke="var(--color-accent)" stroke-width="0.5" opacity="0.2"/>
+              <line x1="40" y1="40" x2="160" y2="160" stroke="var(--color-accent)" stroke-width="0.5" opacity="0.2"/>
+              <line x1="160" y1="40" x2="40" y2="160" stroke="var(--color-accent)" stroke-width="0.5" opacity="0.2"/>
+              <circle cx="100" cy="30" r="4" fill="var(--color-accent)" opacity="0.8"/>
+              <circle cx="100" cy="170" r="4" fill="var(--color-accent)" opacity="0.8"/>
+              <circle cx="30" cy="100" r="4" fill="var(--color-accent)" opacity="0.8"/>
+              <circle cx="170" cy="100" r="4" fill="var(--color-accent)" opacity="0.8"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="stacking-card" id="stack-card-2">
+      <div class="stacking-card__inner">
+        <div>
+          <span class="stacking-card__step">Paso 02</span>
+          <h3 class="stacking-card__title">Conéctate al Directo</h3>
+          <p class="stacking-card__desc">Abre tu ordenador, entra al enlace y sígueme en tiempo real. Vamos a construir juntos, yo comparto mi pantalla y tú replicas a tu ritmo.</p>
+        </div>
+        <div class="stacking-card__visual">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="laser-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:var(--color-accent);stop-opacity:0"/>
+                <stop offset="50%" style="stop-color:var(--color-accent);stop-opacity:1"/>
+                <stop offset="100%" style="stop-color:var(--color-accent);stop-opacity:0"/>
+              </linearGradient>
+            </defs>
+            <g opacity="0.2">
+              <line x1="20" y1="40" x2="180" y2="40" stroke="var(--color-accent)" stroke-width="0.5"/>
+              <line x1="20" y1="70" x2="180" y2="70" stroke="var(--color-accent)" stroke-width="0.5"/>
+              <line x1="20" y1="100" x2="180" y2="100" stroke="var(--color-accent)" stroke-width="0.5"/>
+              <line x1="20" y1="130" x2="180" y2="130" stroke="var(--color-accent)" stroke-width="0.5"/>
+              <line x1="20" y1="160" x2="180" y2="160" stroke="var(--color-accent)" stroke-width="0.5"/>
+              <line x1="40" y1="20" x2="40" y2="180" stroke="var(--color-accent)" stroke-width="0.5"/>
+              <line x1="70" y1="20" x2="70" y2="180" stroke="var(--color-accent)" stroke-width="0.5"/>
+              <line x1="100" y1="20" x2="100" y2="180" stroke="var(--color-accent)" stroke-width="0.5"/>
+              <line x1="130" y1="20" x2="130" y2="180" stroke="var(--color-accent)" stroke-width="0.5"/>
+              <line x1="160" y1="20" x2="160" y2="180" stroke="var(--color-accent)" stroke-width="0.5"/>
+            </g>
+            <g class="laser-line">
+              <rect x="10" y="96" width="180" height="4" rx="2" fill="url(#laser-grad)"/>
+            </g>
+            <g opacity="0.5">
+              <circle cx="40" cy="40" r="2" fill="var(--color-accent)"/>
+              <circle cx="70" cy="70" r="2" fill="var(--color-accent)"/>
+              <circle cx="100" cy="100" r="3" fill="var(--color-accent)"/>
+              <circle cx="130" cy="130" r="2" fill="var(--color-accent)"/>
+              <circle cx="160" cy="160" r="2" fill="var(--color-accent)"/>
+              <circle cx="70" cy="130" r="2" fill="var(--color-accent)"/>
+              <circle cx="130" cy="70" r="2" fill="var(--color-accent)"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="stacking-card" id="stack-card-3">
+      <div class="stacking-card__inner">
+        <div>
+          <span class="stacking-card__step">Paso 03</span>
+          <h3 class="stacking-card__title">Construye Tu Agente</h3>
+          <p class="stacking-card__desc">Al terminar la clase tendrás un agente de IA funcional. Algo real. Algo que puedes usar en tu negocio o vender como servicio.</p>
+        </div>
+        <div class="stacking-card__visual">
+          <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+            <path class="waveform-path" d="M10,25 Q20,5 30,25 Q40,45 50,25 Q60,5 70,25 Q80,45 90,25 Q100,5 110,25 Q120,45 130,25 Q140,5 150,25 Q160,45 170,25 Q180,5 190,25" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M10,25 Q20,15 30,25 Q40,35 50,25 Q60,15 70,25 Q80,35 90,25 Q100,15 110,25 Q120,35 130,25 Q140,15 150,25 Q160,35 170,25 Q180,15 190,25" fill="none" stroke="var(--color-accent)" stroke-width="1" opacity="0.3"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT PAU ========== -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section__badge reveal"><span class="badge-dot"></span>¿Quién Soy?</div>
+      <h2 class="section__title reveal">Pau Berenguer</h2>
+      <p class="section__subtitle reveal">Fundador de 4 empresas de IA, creador de contenido y referente en automatización con más de 7.500 alumnos en su comunidad.</p>
+
+      <div class="about__grid">
+        <div class="about__photo reveal">
+          <img src="https://assets.cdn.filesafe.space/rlbnQvjWkZmIXqZFa4EI/media/69c10fe53e56b9a4207fab02.jpg" alt="Pau Berenguer" style="width:100%;height:100%;object-fit:cover;border-radius:2rem;">
+        </div>
+
+        <div>
+          <p class="about__bio reveal">
+            Llevo tiempo analizando, probando y aplicando herramientas de IA en proyectos reales. Tengo una comunidad de <strong>más de 7.500 personas</strong> aprendiendo sobre inteligencia artificial, automatizaciones y vibe coding. Soy fundador de <strong>BotDesk</strong>, <strong>Asisttente</strong>, <strong>The AI Blueprint</strong> y creo contenido en YouTube sobre IA aplicada.
+          </p>
+          <p class="about__bio reveal">
+            No soy el típico que repite tendencias. Lo que comparto lo pruebo primero. Si funciona, lo enseño. Si no, te lo digo también.
+          </p>
+
+          <div class="about__metrics reveal">
+            <div class="about__metric">
+              <div class="about__metric-value">+7.500</div>
+              <div class="about__metric-label">Alumnos</div>
+            </div>
+            <div class="about__metric">
+              <div class="about__metric-value">4</div>
+              <div class="about__metric-label">Empresas de IA</div>
+            </div>
+            <div class="about__metric">
+              <div class="about__metric-value">+200</div>
+              <div class="about__metric-label">Plantillas</div>
+            </div>
+          </div>
+
+          <blockquote class="about__quote reveal">
+            "Este directo es la clase que a mí me hubiera gustado tener cuando empecé: alguien que se sienta contigo, abra la pantalla y te diga 'hazlo conmigo'."
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section class="section testimonials dark-section" id="testimonials">
+    <div class="testimonials__texture" id="testimonials-texture"></div>
+    <div class="container testimonials__content">
+      <div class="section__badge section__badge--light reveal"><span class="badge-dot"></span>Lo Que Dicen Nuestros Alumnos</div>
+      <h2 class="section__title reveal" style="color:#fff;">Resultados Reales de Personas Reales</h2>
+      <p class="section__subtitle reveal" style="color:rgba(255,255,255,0.6);">Más de 7.500 personas ya están aplicando IA en sus negocios y proyectos. Estos son algunos de los resultados que han conseguido.</p>
+
+      <div class="testimonials__grid">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-card__stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-card__text">"Llevaba meses viendo vídeos de IA sin hacer nada. En una hora con Pau, creé mi primer agente funcional. Ahora automatizo reportes para mis clientes y cobro por ello."</p>
+          <div class="testimonial-card__author">
+            <div>
+              <div class="testimonial-card__name">María R.</div>
+              <div class="testimonial-card__role">Consultora de Marketing Digital</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <div class="testimonial-card__stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-card__text">"Soy abogado, cero técnico. Pensaba que la IA no era para mí. Después del directo de Pau, tengo un agente que me resume contratos en segundos. Mis compañeros no se lo creen."</p>
+          <div class="testimonial-card__author">
+            <div>
+              <div class="testimonial-card__name">Javier L.</div>
+              <div class="testimonial-card__role">Abogado - Madrid</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <div class="testimonial-card__stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-card__text">"Lo mejor de Pau es que no te vende humo. Se sienta, comparte pantalla y construyes con él. En 2 semanas ya estaba vendiendo automatizaciones a PYMEs por 1.500 EUR."</p>
+          <div class="testimonial-card__author">
+            <div>
+              <div class="testimonial-card__name">Andrea C.</div>
+              <div class="testimonial-card__role">Freelance de Automatización</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <div class="testimonial-card__stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-card__text">"Entré a la comunidad de Pau pensando que era otro curso más. Tres meses después, facturé 8.000 EUR con servicios de IA para empresas. La clase gratuita fue el punto de inflexión."</p>
+          <div class="testimonial-card__author">
+            <div>
+              <div class="testimonial-card__name">Daniel M.</div>
+              <div class="testimonial-card__role">Emprendedor Tech - CDMX</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOR YOU / NOT FOR YOU ========== -->
+  <section class="section for-you" id="for-you">
+    <div class="container">
+      <div class="section__badge reveal"><span class="badge-dot"></span>¿Es Para Ti?</div>
+      <h2 class="section__title reveal">Antes de Registrarte, Léete Esto</h2>
+      <p class="section__subtitle reveal">Este directo no es para todos. Lee esto para saber si de verdad te va a servir antes de reservar tu plaza en el directo.</p>
+
+      <div class="for-you__grid">
+        <div class="for-you__col reveal">
+          <h3 class="for-you__col-title">
+            <span class="icon-yes">✓</span> Esto Es Para Ti Si:
+          </h3>
+          <div class="for-you__item">
+            <span class="for-you__item-icon yes">✓</span>
+            <span>Te interesa la IA pero sientes que no avanzas solo con tutoriales</span>
+          </div>
+          <div class="for-you__item">
+            <span class="for-you__item-icon yes">✓</span>
+            <span>Quieres crear algo real que puedas usar en tu negocio o vender</span>
+          </div>
+          <div class="for-you__item">
+            <span class="for-you__item-icon yes">✓</span>
+            <span>No sabes programar pero quieres aprender a automatizar con N8N</span>
+          </div>
+          <div class="for-you__item">
+            <span class="for-you__item-icon yes">✓</span>
+            <span>Estás cansado de acumular información sin aplicar nada</span>
+          </div>
+        </div>
+
+        <div class="for-you__col reveal">
+          <h3 class="for-you__col-title">
+            <span class="icon-no">✕</span> Esto NO Es Para Ti Si:
+          </h3>
+          <div class="for-you__item">
+            <span class="for-you__item-icon no">✕</span>
+            <span>Prefieres seguir consumiendo contenido sin aplicar nada</span>
+          </div>
+          <div class="for-you__item">
+            <span class="for-you__item-icon no">✕</span>
+            <span>No estás dispuesto a abrir tu ordenador y seguir el paso a paso</span>
+          </div>
+          <div class="for-you__item">
+            <span class="for-you__item-icon no">✕</span>
+            <span>Crees que la IA es una moda pasajera y no merece tu tiempo</span>
+          </div>
+          <div class="for-you__item">
+            <span class="for-you__item-icon no">✕</span>
+            <span>Ya facturas automatizando con N8N y no necesitas aprender más</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <div class="section__badge reveal"><span class="badge-dot"></span>Preguntas Frecuentes</div>
+      <h2 class="section__title reveal">Resolvamos Tus Dudas</h2>
+      <p class="section__subtitle reveal">Las preguntas que más nos hacen antes de cada directo. Si la tuya no está aquí, escríbenos y te respondemos encantados.</p>
+
+      <div class="faq__list">
+        <div class="faq__item reveal">
+          <div class="faq__question">
+            <span>¿Necesito saber programar?</span>
+            <span class="faq__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </div>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">No. El directo está pensado para personas sin experiencia técnica. Te guío paso a paso.</div>
+          </div>
+        </div>
+
+        <div class="faq__item reveal">
+          <div class="faq__question">
+            <span>¿Es realmente gratis?</span>
+            <span class="faq__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </div>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">Sí, 100% gratis. Sin trucos. Solo regístrate y conéctate el día del directo.</div>
+          </div>
+        </div>
+
+        <div class="faq__item reveal">
+          <div class="faq__question">
+            <span>¿Se va a grabar?</span>
+            <span class="faq__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </div>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">El directo es en vivo y la grabación no estará disponible después. Si quieres verlo, tienes que estar en directo.</div>
+          </div>
+        </div>
+
+        <div class="faq__item reveal">
+          <div class="faq__question">
+            <span>¿Qué necesito para participar?</span>
+            <span class="faq__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </div>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">Un ordenador con conexión a internet. Te enviaré las instrucciones por email antes del directo.</div>
+          </div>
+        </div>
+
+        <div class="faq__item reveal">
+          <div class="faq__question">
+            <span>¿Qué pasa si no puedo asistir?</span>
+            <span class="faq__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </div>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">Regístrate igualmente. Si no puedes estar, te avisaremos del próximo. Pero la oferta exclusiva es solo para los que asistan en vivo.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FINAL CTA ========== -->
+  <section class="final-cta" id="registro-final">
+    <div class="container">
+      <div class="final-cta__grid">
+        <div class="final-cta__text">
+          <div class="hero__badge reveal">
+            <span class="pulse-dot"></span>
+            Plazas Limitadas — Se Cierra el Registro Cuando Se Llenen
+          </div>
+          <h2 class="reveal">
+            <span class="hero__title-line1">No Te Quedes Viendo Cómo Otros Avanzan.</span>
+            <span class="hero__title-line2">Crea Tu <span class="accent">Agente</span> Ahora.</span>
+          </h2>
+          <p class="final-cta__subtitle reveal">Este sábado 5 de abril a las 19:00h tienes la oportunidad de crear algo real con IA. En directo. Conmigo. Gratis. Sin excusas, sin experiencia previa, solo tú y tu ordenador.</p>
+        </div>
+        <div class="final-cta__form-side reveal">
+          <div id="cta-form" data-component="registration-form" data-variant="hero"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__row">
+        <div class="footer__copy">
+          Pau Berenguer &copy; 2026 · Todos los Derechos Reservados · <a href="/politica-privacidad">Política de Privacidad</a> · <a href="/terminos">Términos y Condiciones</a>
+        </div>
+        <div class="footer__social" id="footer-social" data-component="social-links"></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== THEME SWITCHER (preview) ========== -->
+  <div class="theme-switcher" id="theme-switcher">
+    <span class="theme-switcher__label">Tema</span>
+    <button class="theme-switcher__btn" data-theme="a" aria-label="Organic Tech">
+      <span class="theme-switcher__btn-label">Organic Tech</span>
+    </button>
+    <button class="theme-switcher__btn" data-theme="b" aria-label="Midnight Luxe">
+      <span class="theme-switcher__btn-label">Midnight Luxe</span>
+    </button>
+    <button class="theme-switcher__btn" data-theme="c" aria-label="Brutalist Signal">
+      <span class="theme-switcher__btn-label">Brutalist Signal</span>
+    </button>
+    <button class="theme-switcher__btn active" data-theme="d" aria-label="Vapor Clinic">
+      <span class="theme-switcher__btn-label">Vapor Clinic</span>
+    </button>
+  </div>
+
+<!-- Inline scripts -->
+<script>
+/* ============================================
+   COMPONENTS.JS — Reusable UI Components
+   ============================================ */
+
+const Components = {
+
+  COUNTRY_CODES: [
+    { code: '+34', label: '\u{1F1EA}\u{1F1F8} +34', flag: '\u{1F1EA}\u{1F1F8}' },
+    { code: '+52', label: '\u{1F1F2}\u{1F1FD} +52', flag: '\u{1F1F2}\u{1F1FD}' },
+    { code: '+54', label: '\u{1F1E6}\u{1F1F7} +54', flag: '\u{1F1E6}\u{1F1F7}' },
+    { code: '+57', label: '\u{1F1E8}\u{1F1F4} +57', flag: '\u{1F1E8}\u{1F1F4}' },
+    { code: '+56', label: '\u{1F1E8}\u{1F1F1} +56', flag: '\u{1F1E8}\u{1F1F1}' },
+    { code: '+51', label: '\u{1F1F5}\u{1F1EA} +51', flag: '\u{1F1F5}\u{1F1EA}' },
+    { code: '+593', label: '\u{1F1EA}\u{1F1E8} +593', flag: '\u{1F1EA}\u{1F1E8}' },
+    { code: '+598', label: '\u{1F1FA}\u{1F1FE} +598', flag: '\u{1F1FA}\u{1F1FE}' },
+    { code: '+1', label: '\u{1F1FA}\u{1F1F8} +1', flag: '\u{1F1FA}\u{1F1F8}' },
+    { code: '+44', label: '\u{1F1EC}\u{1F1E7} +44', flag: '\u{1F1EC}\u{1F1E7}' },
+    { code: '+49', label: '\u{1F1E9}\u{1F1EA} +49', flag: '\u{1F1E9}\u{1F1EA}' },
+    { code: '+33', label: '\u{1F1EB}\u{1F1F7} +33', flag: '\u{1F1EB}\u{1F1F7}' },
+    { code: '+39', label: '\u{1F1EE}\u{1F1F9} +39', flag: '\u{1F1EE}\u{1F1F9}' },
+    { code: '+351', label: '\u{1F1F5}\u{1F1F9} +351', flag: '\u{1F1F5}\u{1F1F9}' },
+    { code: '+55', label: '\u{1F1E7}\u{1F1F7} +55', flag: '\u{1F1E7}\u{1F1F7}' },
+  ],
+
+  SOCIAL_LINKS: [
+    {
+      name: 'YouTube',
+      url: 'https://www.youtube.com/@PauBerenguerAI',
+      svg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>'
+    },
+    {
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/pauberenguer-ai/',
+      svg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>'
+    },
+    {
+      name: 'Instagram',
+      url: 'https://www.instagram.com/pauberenguer_/',
+      svg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>'
+    },
+    {
+      name: 'Skool',
+      url: 'https://www.skool.com/the-ai-blueprint',
+      svg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>'
+    }
+  ],
+
+  createRegistrationForm(containerId, variant = 'default') {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const isHero = variant === 'hero';
+    const formClass = isHero ? 'reg-form reg-form--hero' : 'reg-form';
+
+    const optionsHTML = this.COUNTRY_CODES.map(c =>
+      `<option value="${c.code}" ${c.code === '+34' ? 'selected' : ''}>${c.label}</option>`
+    ).join('');
+
+    container.innerHTML = `
+      <form class="${formClass}" action="TU_WEBHOOK_GHL_AQUI" method="POST">
+        <div class="reg-form__field">
+          <label class="reg-form__label">Nombre</label>
+          <input type="text" name="name" class="reg-form__input" placeholder="Tu nombre completo" required>
+        </div>
+        <div class="reg-form__field">
+          <label class="reg-form__label">Email</label>
+          <input type="email" name="email" class="reg-form__input" placeholder="tu@email.com" required>
+        </div>
+        <div class="reg-form__field">
+          <label class="reg-form__label">Teléfono</label>
+          <div class="reg-form__phone">
+            <select name="country_code" class="reg-form__select">${optionsHTML}</select>
+            <input type="tel" name="phone" class="reg-form__input reg-form__input--phone" placeholder="612 345 678" required>
+          </div>
+        </div>
+        <button type="submit" class="reg-form__submit">
+          <span class="btn-bg"></span>
+          <span class="reg-form__submit-text">Reserva Tu Plaza Gratis</span>
+        </button>
+        <p class="reg-form__consent">Al registrarte aceptas nuestra <a href="/politica-privacidad" target="_blank">Política de Privacidad</a> y <a href="/terminos" target="_blank">Términos y Condiciones</a>.</p>
+      </form>
+    `;
+
+    const form = container.querySelector('form');
+    const isPlaceholder = form.action.includes('TU_WEBHOOK_GHL_AQUI');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('.reg-form__submit');
+      const textEl = form.querySelector('.reg-form__submit-text');
+      btn.disabled = true;
+      textEl.textContent = 'Registrando...';
+
+      if (isPlaceholder) {
+        setTimeout(() => { window.location.href = '/gracias'; }, 600);
+      } else {
+        const formData = new FormData(form);
+        fetch(form.action, {
+          method: 'POST',
+          body: formData
+        })
+        .then(() => { window.location.href = '/gracias'; })
+        .catch(() => { window.location.href = '/gracias'; });
+      }
+    });
+  },
+
+  createSocialLinks(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = this.SOCIAL_LINKS.map(link =>
+      `<a href="${link.url}" target="_blank" rel="noopener noreferrer" class="social-link" title="${link.name}">${link.svg}</a>`
+    ).join('');
+  },
+
+  init() {
+    document.querySelectorAll('[data-component="registration-form"]').forEach(el => {
+      this.createRegistrationForm(el.id, el.dataset.variant || 'default');
+    });
+
+    document.querySelectorAll('[data-component="social-links"]').forEach(el => {
+      this.createSocialLinks(el.id);
+    });
+  }
+};
+
+(function(){ if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => Components.init()); else Components.init(); })();
+</script>
+
+<script>
+/* ============================================
+   THEME SWITCHER — Live preview of 4 presets
+   ============================================ */
+
+(function() {
+  const THEMES = {
+    a: { name: 'Organic Tech', heroLight: true },
+    b: { name: 'Midnight Luxe', heroLight: true },
+    c: { name: 'Brutalist Signal', heroLight: true },
+    d: { name: 'Vapor Clinic', heroLight: true }
+  };
+
+  function getStoredTheme() {
+    try { return localStorage.getItem('pau-theme') || 'd'; }
+    catch { return 'd'; }
+  }
+
+  function setTheme(themeKey) {
+    document.documentElement.setAttribute('data-theme', themeKey);
+
+    try { localStorage.setItem('pau-theme', themeKey); }
+    catch {}
+
+    const buttons = document.querySelectorAll('.theme-switcher__btn');
+    buttons.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.theme === themeKey);
+    });
+
+    if (typeof ScrollTrigger !== 'undefined') {
+      setTimeout(() => ScrollTrigger.refresh(), 100);
+    }
+  }
+
+  function _initTheme() {
+    const stored = getStoredTheme();
+    setTheme(stored);
+
+    const switcher = document.getElementById('theme-switcher');
+    if (!switcher) return;
+
+    switcher.addEventListener('click', (e) => {
+      const btn = e.target.closest('.theme-switcher__btn');
+      if (!btn) return;
+
+      const themeKey = btn.dataset.theme;
+      if (!THEMES[themeKey]) return;
+
+      document.documentElement.style.transition = 'none';
+      document.body.style.transition = 'none';
+
+      setTheme(themeKey);
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          document.documentElement.style.transition = '';
+          document.body.style.transition = '';
+        });
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', _initTheme);
+  else _initTheme();
+})();
+</script>
+
+<script>
+/* ============================================
+   MAIN.JS — GSAP Animations & Interactions
+   ============================================ */
+
+(function(){
+  function _initMain() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    return setTimeout(_initMain, 100);
+  }
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ------------------------------------------------
+     CONFIG — Editable dates
+     ------------------------------------------------ */
+  const CONFIG = {
+    dia: 'Sábado',
+    fecha: 'Sábado, 5 de Abril',
+    hora_espana: '19:00',
+    hora_mexico: '12:00',
+    hora_argentina: '14:00'
+  };
+
+  const dateEl = document.getElementById('detail-date');
+  const timeEl = document.getElementById('detail-time');
+  if (dateEl) dateEl.textContent = CONFIG.fecha;
+  if (timeEl) timeEl.textContent = `${CONFIG.hora_espana}h España`;
+
+  /* ------------------------------------------------
+     NAVBAR — Morphing on scroll
+     ------------------------------------------------ */
+  const navbar = document.getElementById('navbar');
+  const hero = document.getElementById('hero');
+
+  if (navbar && hero) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        navbar.classList.toggle('scrolled', !entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(hero);
+  }
+
+  /* ------------------------------------------------
+     HERO — Stagger entrance
+     ------------------------------------------------ */
+  const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+  heroTl
+    .to('.hero__badge', { opacity: 1, y: 0, duration: 0.8 }, 0.3)
+    .fromTo('.hero__title-line1',
+      { opacity: 0, y: 40 },
+      { opacity: 1, y: 0, duration: 0.9 }, 0.5)
+    .fromTo('.hero__title-line2',
+      { opacity: 0, y: 40 },
+      { opacity: 1, y: 0, duration: 0.9 }, 0.7)
+    .fromTo('.hero__subtitle',
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8 }, 0.9)
+    .fromTo('.hero__form-side',
+      { opacity: 0, x: 40 },
+      { opacity: 1, x: 0, duration: 1 }, 0.7);
+
+  /* ------------------------------------------------
+     SCROLL REVEAL — Generic .reveal elements
+     ------------------------------------------------ */
+  const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach((el, i) => {
+    gsap.fromTo(el,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        }
+      }
+    );
+  });
+
+  /* ------------------------------------------------
+     PHILOSOPHY — Parallax texture
+     ------------------------------------------------ */
+  const philTexture = document.getElementById('philosophy-texture');
+  if (philTexture) {
+    gsap.fromTo(philTexture,
+      { y: -60 },
+      {
+        y: 60,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#philosophy',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1
+        }
+      }
+    );
+  }
+
+  /* ------------------------------------------------
+     STACKING CARDS — Pin & stack effect
+     ------------------------------------------------ */
+  const stackCards = document.querySelectorAll('.stacking-card');
+  stackCards.forEach((card, i) => {
+    if (i < stackCards.length - 1) {
+      ScrollTrigger.create({
+        trigger: card,
+        start: 'top top',
+        end: '+=100%',
+        pin: true,
+        pinSpacing: true,
+        onUpdate: (self) => {
+          const p = self.progress;
+          gsap.set(card, {
+            scale: 1 - (p * 0.08),
+            filter: `blur(${p * 12}px)`,
+            opacity: 1 - (p * 0.4)
+          });
+        }
+      });
+    }
+  });
+
+  /* ------------------------------------------------
+     FAQ — Accordion
+     ------------------------------------------------ */
+  const faqItems = document.querySelectorAll('.faq__item');
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq__question');
+    const answer = item.querySelector('.faq__answer');
+    const inner = item.querySelector('.faq__answer-inner');
+
+    question.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+
+      faqItems.forEach(other => {
+        if (other !== item) {
+          other.classList.remove('active');
+          other.querySelector('.faq__answer').style.maxHeight = '0';
+        }
+      });
+
+      if (isActive) {
+        item.classList.remove('active');
+        answer.style.maxHeight = '0';
+      } else {
+        item.classList.add('active');
+        answer.style.maxHeight = inner.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ------------------------------------------------
+     CARD 1: Diagnostic Shuffler
+     ------------------------------------------------ */
+  const shufflerEl = document.getElementById('shuffler');
+  if (shufflerEl) {
+    const cards = Array.from(shufflerEl.querySelectorAll('.shuffler-card'));
+    let currentOrder = [0, 1, 2];
+
+    function positionShufflerCards() {
+      currentOrder.forEach((idx, position) => {
+        const card = cards[idx];
+        const yOffset = position * 28;
+        const scale = 1 - (position * 0.04);
+        const zIndex = cards.length - position;
+        const opacity = 1 - (position * 0.2);
+
+        gsap.to(card, {
+          y: yOffset,
+          scale: scale,
+          zIndex: zIndex,
+          opacity: opacity,
+          duration: 0.6,
+          ease: 'back.out(1.4)'
+        });
+      });
+    }
+
+    positionShufflerCards();
+
+    setInterval(() => {
+      currentOrder.push(currentOrder.shift());
+      positionShufflerCards();
+    }, 3000);
+  }
+
+  /* ------------------------------------------------
+     CARD 2: Telemetry Typewriter
+     ------------------------------------------------ */
+  const typewriterEl = document.getElementById('typewriter-text');
+  if (typewriterEl) {
+    const messages = [
+      '> Probando ChatGPT... otra vez... sin resultados claros',
+      '> Vídeo de N8N: "Automatiza todo en 10 min" — mentira',
+      '> ERROR: No sé por dónde empezar con tantas opciones',
+      '> Descargando curso #47 de IA... este sí será el bueno',
+      '> Tutorial completado. Resultado: ninguno. Como siempre.',
+      '> Nueva herramienta de IA: ¿otra vez? Ya van 15 este mes',
+      '> Buscando: "cómo monetizar IA en 2026 sin perder tiempo"',
+      '> Cursor, Claude, ChatGPT, N8N... ¿cuál uso para empezar?',
+      '> WARNING: Parálisis por análisis detectada en el sistema',
+      '> SOLUCIÓN: Clase en directo con Pau — Regístrate gratis →'
+    ];
+
+    let msgIndex = 0;
+    let charIndex = 0;
+    let currentLine = '';
+    let lines = [];
+
+    function typeChar() {
+      if (charIndex < messages[msgIndex].length) {
+        currentLine += messages[msgIndex][charIndex];
+        charIndex++;
+        renderTypewriter();
+        setTimeout(typeChar, 30 + Math.random() * 40);
+      } else {
+        lines.push(currentLine);
+        if (lines.length > 3) lines.shift();
+        currentLine = '';
+        charIndex = 0;
+        msgIndex = (msgIndex + 1) % messages.length;
+        setTimeout(typeChar, 1200);
+      }
+    }
+
+    function renderTypewriter() {
+      let slots = '';
+      slots += lines.map(l => `<div style="opacity:0.5">${l}</div>`).join('');
+      slots += '<div>' + currentLine + '<span class="typewriter-cursor"></span></div>';
+      for (let i = 0; i < 3 - lines.length; i++) {
+        slots += '<div></div>';
+      }
+      typewriterEl.innerHTML = slots;
+    }
+
+    setTimeout(typeChar, 1000);
+  }
+
+  /* ------------------------------------------------
+     CARD 3: Cursor Protocol Scheduler
+     ------------------------------------------------ */
+  const schedulerEl = document.getElementById('scheduler');
+  if (schedulerEl) {
+    const cursor = document.getElementById('scheduler-cursor');
+    const days = schedulerEl.querySelectorAll('.scheduler-day');
+    const saveBtn = document.getElementById('scheduler-save');
+    const targetDay = days[5];
+
+    function runSchedulerAnimation() {
+      days.forEach(d => d.classList.remove('active'));
+      if (saveBtn) saveBtn.classList.remove('active');
+
+      const tl = gsap.timeline({ onComplete: () => setTimeout(runSchedulerAnimation, 2000) });
+
+      const schedulerRect = schedulerEl.getBoundingClientRect();
+      const dayRect = targetDay.getBoundingClientRect();
+      const startX = -20;
+      const startY = -20;
+      const dayX = dayRect.left - schedulerRect.left + dayRect.width / 2;
+      const dayY = dayRect.top - schedulerRect.top + dayRect.height / 2;
+
+      const saveBtnRect = saveBtn.getBoundingClientRect();
+      const saveBtnX = saveBtnRect.left - schedulerRect.left + saveBtnRect.width / 2;
+      const saveBtnY = saveBtnRect.top - schedulerRect.top + saveBtnRect.height / 2;
+
+      tl.set(cursor, { x: startX, y: startY, opacity: 0 })
+        .to(cursor, { opacity: 1, duration: 0.3 })
+        .to(cursor, { x: dayX, y: dayY, duration: 0.8, ease: 'power2.inOut' })
+        .to(targetDay, { scale: 0.9, duration: 0.1 })
+        .to(targetDay, { scale: 1, duration: 0.2 }, '+=0.05')
+        .call(() => { targetDay.classList.add('active'); })
+        .to(cursor, {
+          x: saveBtnX,
+          y: saveBtnY,
+          duration: 0.6,
+          ease: 'power2.inOut'
+        }, '+=0.3')
+        .to(saveBtn, { scale: 0.95, duration: 0.1 })
+        .to(saveBtn, { scale: 1, duration: 0.2 }, '+=0.05')
+        .call(() => { if (saveBtn) saveBtn.classList.add('active'); })
+        .to(cursor, { opacity: 0, duration: 0.4 }, '+=0.5');
+    }
+
+    setTimeout(runSchedulerAnimation, 2000);
+  }
+
+  /* ------------------------------------------------
+     SMOOTH SCROLL — for anchor links
+     ------------------------------------------------ */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  /* ------------------------------------------------
+     HASH NAVIGATION — Scroll to section on page load
+     ------------------------------------------------ */
+  if (window.location.hash) {
+    const hashTarget = document.querySelector(window.location.hash);
+    if (hashTarget) {
+      window.scrollTo(0, 0);
+      setTimeout(() => {
+        hashTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 600);
+    }
+  }
+
+  /* ------------------------------------------------
+     FORM — Prevent default (placeholder for GHL)
+     ------------------------------------------------ */
+  /* Form handling is now in components.js */
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', _initMain);
+  else _initMain();
+})();
+</script>

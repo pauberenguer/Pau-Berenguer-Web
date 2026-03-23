@@ -1,0 +1,26 @@
+<!-- =============================================
+     PEGAR ESTO EN: Settings > Tracking Code > Header
+     (Mismo contenido para las 4 páginas)
+     ============================================= -->
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://assets.cdn.filesafe.space/rlbnQvjWkZmIXqZFa4EI/media/69c10fe5427f6e53423a0033.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://assets.cdn.filesafe.space/rlbnQvjWkZmIXqZFa4EI/media/69c10fe53e56b907087fab01.png">
+<link rel="apple-touch-icon" href="https://assets.cdn.filesafe.space/rlbnQvjWkZmIXqZFa4EI/media/69c10fe53e56b987c97fab03.png">
+
+<!-- Google Fonts — All 4 theme combos -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&family=Sora:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<!-- Forzar data-theme en html (GHL no pone atributos en <html>) -->
+<script>
+(function(){
+  var t;
+  try { t = localStorage.getItem('pau-theme') || 'd'; } catch(e) { t = 'd'; }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>

@@ -1799,6 +1799,29 @@ h1, h2, h3, h4 {
   transform: translateX(0);
 }
 
+/* --- WhatsApp CTA Button --- */
+.gracias-whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  padding: 1.15rem 2.5rem;
+  border-radius: 100px;
+  background: #25D366;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
+}
+
+.gracias-whatsapp-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+}
+
 /* --- Gracias Reveal (for GSAP) --- */
 .gracias-reveal {
   opacity: 0;

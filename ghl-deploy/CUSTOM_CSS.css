@@ -1,32 +1,55 @@
 /* ============================================
    GHL RESET — Neutralizar estilos de GoHighLevel
    ============================================ */
-body {
+html, body {
   margin: 0 !important;
   padding: 0 !important;
-  background-color: var(--color-bg) !important;
+  background-color: var(--color-dark, #0A0A14) !important;
+  overflow-x: hidden !important;
 }
 
 #preview-container,
 .hl_page-preview,
-.hl_page-preview--content {
-  all: unset !important;
+.hl_page-preview--content,
+.hl_page-creator,
+.hl_page-preview--content > *,
+.hl_page-preview--content > * > *,
+.hl_page-preview--content > * > * > * {
   display: block !important;
-}
-
-.hl_page-preview--content > .container--fluid,
-.hl_page-preview--content > .row-fluid,
-.hl_page-preview--content .inner-section {
   padding: 0 !important;
   margin: 0 !important;
   max-width: none !important;
   width: 100% !important;
+  background: transparent !important;
+  border: none !important;
+  box-sizing: border-box !important;
 }
 
-.hl_page-preview--content .section_wrapper,
-.hl_page-preview--content .section-element__wrapper {
+.container--fluid,
+.row-fluid,
+.row-fluid > [class*="span"],
+.span12,
+.inner-section,
+.section_wrapper,
+.section-element__wrapper,
+.column_wrapper,
+.inner-column,
+[id^="section-"],
+[class*="section-element"],
+[class*="column-"] {
   padding: 0 !important;
+  margin: 0 !important;
   max-width: none !important;
+  width: 100% !important;
+  background: transparent !important;
+  float: none !important;
+  border: none !important;
+  box-sizing: border-box !important;
+}
+
+.notouch .hl_page-preview--content,
+.notouch .hl_page-preview {
+  background: transparent !important;
 }
 
 /* ============================================
@@ -1531,82 +1554,6 @@ h1, h2, h3, h4 {
   width: 100%;
 }
 
-/* ============================================
-   THEME SWITCHER (preview bar)
-   ============================================ */
-.theme-switcher {
-  position: fixed;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1rem;
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(20px);
-  border-radius: 100px;
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-}
-
-.theme-switcher__label {
-  font-family: var(--font-data);
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.5);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-right: 0.5rem;
-  white-space: nowrap;
-}
-
-.theme-switcher__btn {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.theme-switcher__btn:hover {
-  transform: scale(1.15);
-}
-
-.theme-switcher__btn.active {
-  border-color: #fff;
-  box-shadow: 0 0 12px rgba(255,255,255,0.3);
-}
-
-.theme-switcher__btn[data-theme="a"] { background: linear-gradient(135deg, #2E4036, #CC5833); }
-.theme-switcher__btn[data-theme="b"] { background: linear-gradient(135deg, #0D0D12, #C9A84C); }
-.theme-switcher__btn[data-theme="c"] { background: linear-gradient(135deg, #E8E4DD, #E63B2E); }
-.theme-switcher__btn[data-theme="d"] { background: linear-gradient(135deg, #0A0A14, #7B61FF); }
-
-.theme-switcher__btn-label {
-  position: absolute;
-  bottom: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.9);
-  color: #fff;
-  padding: 0.3rem 0.6rem;
-  border-radius: 6px;
-  font-size: 0.65rem;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-.theme-switcher__btn:hover .theme-switcher__btn-label {
-  opacity: 1;
-}
 
 /* ============================================
    SCROLL REVEAL (utility)
@@ -2179,15 +2126,6 @@ h1, h2, h3, h4 {
 
   .footer__social {
     gap: 1rem;
-  }
-
-  .theme-switcher {
-    bottom: 1rem;
-    padding: 0.5rem 0.75rem;
-  }
-
-  .theme-switcher__label {
-    display: none;
   }
 
   .about__metrics {

@@ -5,9 +5,9 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ------------------------------------------------
-     COUNTDOWN — Target: Sábado 5 Abril 2025, 19:00 CEST
+     COUNTDOWN — Target: Martes 7 Abril 2026, 19:00 CEST
      ------------------------------------------------ */
-  const EVENT_DATE = new Date('2026-04-05T19:00:00+02:00');
+  const EVENT_DATE = new Date('2026-04-07T19:00:00+02:00');
 
   const cdDays = document.getElementById('cd-days');
   const cdHours = document.getElementById('cd-hours');

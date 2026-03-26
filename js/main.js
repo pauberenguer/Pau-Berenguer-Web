@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
      CONFIG — Editable dates
      ------------------------------------------------ */
   const CONFIG = {
-    dia: 'Sábado',
-    fecha: 'Sábado, 5 de Abril',
+    dia: 'Martes',
+    fecha: 'Martes, 7 de Abril',
     hora_espana: '19:00',
     hora_mexico: '12:00',
     hora_argentina: '14:00'
@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cursor = document.getElementById('scheduler-cursor');
     const days = schedulerEl.querySelectorAll('.scheduler-day');
     const saveBtn = document.getElementById('scheduler-save');
-    const targetDay = days[5];
+    const targetDay = days[1];
 
     function runSchedulerAnimation() {
       days.forEach(d => d.classList.remove('active'));

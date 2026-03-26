@@ -104,6 +104,6 @@ body { margin: 0 !important; padding: 0 !important; }
 
 - Los enlaces entre páginas ya usan rutas de funnel (`/gracias`, `/politica-privacidad`, `/terminos`) en lugar de `.html`
 - El tema por defecto es "d" (Vapor Clinic) y se guarda en localStorage
-- El countdown de la página de gracias apunta al 5 de Abril de 2026 a las 19:00h CEST
+- El countdown de la página de gracias apunta al 7 de Abril de 2026 a las 19:00h CEST
 - Las fuentes de Google y GSAP se cargan desde CDN (no necesitan subirse)
 - El formulario hace POST al webhook y redirige a `/gracias` automáticamente

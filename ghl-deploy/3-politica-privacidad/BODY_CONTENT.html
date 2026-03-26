@@ -2,7 +2,7 @@
 
 <script>
 (function(){
-  var t; try { t = localStorage.getItem('pau-theme') || 'd'; } catch(e) { t = 'd'; }
+  var t = 'a';
   document.documentElement.setAttribute('data-theme', t);
 })();
 </script>
@@ -105,22 +105,6 @@
     </div>
   </footer>
 
-  <div class="theme-switcher" id="theme-switcher">
-    <span class="theme-switcher__label">Tema</span>
-    <button class="theme-switcher__btn" data-theme="a" aria-label="Organic Tech">
-      <span class="theme-switcher__btn-label">Organic Tech</span>
-    </button>
-    <button class="theme-switcher__btn" data-theme="b" aria-label="Midnight Luxe">
-      <span class="theme-switcher__btn-label">Midnight Luxe</span>
-    </button>
-    <button class="theme-switcher__btn" data-theme="c" aria-label="Brutalist Signal">
-      <span class="theme-switcher__btn-label">Brutalist Signal</span>
-    </button>
-    <button class="theme-switcher__btn active" data-theme="d" aria-label="Vapor Clinic">
-      <span class="theme-switcher__btn-label">Vapor Clinic</span>
-    </button>
-  </div>
-
 <script>
 /* ============================================
    COMPONENTS.JS — Reusable UI Components
@@ -137,13 +121,32 @@ const Components = {
     { code: '+51', label: '\u{1F1F5}\u{1F1EA} +51', flag: '\u{1F1F5}\u{1F1EA}' },
     { code: '+593', label: '\u{1F1EA}\u{1F1E8} +593', flag: '\u{1F1EA}\u{1F1E8}' },
     { code: '+598', label: '\u{1F1FA}\u{1F1FE} +598', flag: '\u{1F1FA}\u{1F1FE}' },
+    { code: '+58', label: '\u{1F1FB}\u{1F1EA} +58', flag: '\u{1F1FB}\u{1F1EA}' },
+    { code: '+591', label: '\u{1F1E7}\u{1F1F4} +591', flag: '\u{1F1E7}\u{1F1F4}' },
+    { code: '+595', label: '\u{1F1F5}\u{1F1FE} +595', flag: '\u{1F1F5}\u{1F1FE}' },
+    { code: '+506', label: '\u{1F1E8}\u{1F1F7} +506', flag: '\u{1F1E8}\u{1F1F7}' },
+    { code: '+507', label: '\u{1F1F5}\u{1F1E6} +507', flag: '\u{1F1F5}\u{1F1E6}' },
+    { code: '+502', label: '\u{1F1EC}\u{1F1F9} +502', flag: '\u{1F1EC}\u{1F1F9}' },
+    { code: '+504', label: '\u{1F1ED}\u{1F1F3} +504', flag: '\u{1F1ED}\u{1F1F3}' },
+    { code: '+503', label: '\u{1F1F8}\u{1F1FB} +503', flag: '\u{1F1F8}\u{1F1FB}' },
+    { code: '+505', label: '\u{1F1F3}\u{1F1EE} +505', flag: '\u{1F1F3}\u{1F1EE}' },
+    { code: '+53', label: '\u{1F1E8}\u{1F1FA} +53', flag: '\u{1F1E8}\u{1F1FA}' },
+    { code: '+1809', label: '\u{1F1E9}\u{1F1F4} +1809', flag: '\u{1F1E9}\u{1F1F4}' },
+    { code: '+1787', label: '\u{1F1F5}\u{1F1F7} +1787', flag: '\u{1F1F5}\u{1F1F7}' },
+    { code: '+240', label: '\u{1F1EC}\u{1F1F6} +240', flag: '\u{1F1EC}\u{1F1F6}' },
+    { code: '+55', label: '\u{1F1E7}\u{1F1F7} +55', flag: '\u{1F1E7}\u{1F1F7}' },
     { code: '+1', label: '\u{1F1FA}\u{1F1F8} +1', flag: '\u{1F1FA}\u{1F1F8}' },
     { code: '+44', label: '\u{1F1EC}\u{1F1E7} +44', flag: '\u{1F1EC}\u{1F1E7}' },
     { code: '+49', label: '\u{1F1E9}\u{1F1EA} +49', flag: '\u{1F1E9}\u{1F1EA}' },
     { code: '+33', label: '\u{1F1EB}\u{1F1F7} +33', flag: '\u{1F1EB}\u{1F1F7}' },
     { code: '+39', label: '\u{1F1EE}\u{1F1F9} +39', flag: '\u{1F1EE}\u{1F1F9}' },
     { code: '+351', label: '\u{1F1F5}\u{1F1F9} +351', flag: '\u{1F1F5}\u{1F1F9}' },
-    { code: '+55', label: '\u{1F1E7}\u{1F1F7} +55', flag: '\u{1F1E7}\u{1F1F7}' },
+    { code: '+41', label: '\u{1F1E8}\u{1F1ED} +41', flag: '\u{1F1E8}\u{1F1ED}' },
+    { code: '+31', label: '\u{1F1F3}\u{1F1F1} +31', flag: '\u{1F1F3}\u{1F1F1}' },
+    { code: '+32', label: '\u{1F1E7}\u{1F1EA} +32', flag: '\u{1F1E7}\u{1F1EA}' },
+    { code: '+43', label: '\u{1F1E6}\u{1F1F9} +43', flag: '\u{1F1E6}\u{1F1F9}' },
+    { code: '+48', label: '\u{1F1F5}\u{1F1F1} +48', flag: '\u{1F1F5}\u{1F1F1}' },
+    { code: '+46', label: '\u{1F1F8}\u{1F1EA} +46', flag: '\u{1F1F8}\u{1F1EA}' },
   ],
 
   SOCIAL_LINKS: [
@@ -253,66 +256,5 @@ const Components = {
 </script>
 
 <script>
-/* ============================================
-   THEME SWITCHER — Live preview of 4 presets
-   ============================================ */
-
-(function() {
-  const THEMES = {
-    a: { name: 'Organic Tech', heroLight: true },
-    b: { name: 'Midnight Luxe', heroLight: true },
-    c: { name: 'Brutalist Signal', heroLight: true },
-    d: { name: 'Vapor Clinic', heroLight: true }
-  };
-
-  function getStoredTheme() {
-    try { return localStorage.getItem('pau-theme') || 'd'; }
-    catch { return 'd'; }
-  }
-
-  function setTheme(themeKey) {
-    document.documentElement.setAttribute('data-theme', themeKey);
-
-    try { localStorage.setItem('pau-theme', themeKey); }
-    catch {}
-
-    const buttons = document.querySelectorAll('.theme-switcher__btn');
-    buttons.forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.theme === themeKey);
-    });
-
-    if (typeof ScrollTrigger !== 'undefined') {
-      setTimeout(() => ScrollTrigger.refresh(), 100);
-    }
-  }
-
-  (function _initTheme(){
-    if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', _initTheme); return; }
-    const stored = getStoredTheme();
-    setTheme(stored);
-
-    const switcher = document.getElementById('theme-switcher');
-    if (!switcher) return;
-
-    switcher.addEventListener('click', (e) => {
-      const btn = e.target.closest('.theme-switcher__btn');
-      if (!btn) return;
-
-      const themeKey = btn.dataset.theme;
-      if (!THEMES[themeKey]) return;
-
-      document.documentElement.style.transition = 'none';
-      document.body.style.transition = 'none';
-
-      setTheme(themeKey);
-
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          document.documentElement.style.transition = '';
-          document.body.style.transition = '';
-        });
-      });
-    });
-  })();
-})();
+document.documentElement.setAttribute('data-theme', 'a');
 </script>

@@ -64,6 +64,21 @@ const Components = {
     }
   ],
 
+  WEBHOOK_URL: 'https://services.leadconnectorhq.com/hooks/rlbnQvjWkZmIXqZFa4EI/webhook-trigger/222ac678-032f-42ef-a820-3aa0914e614f',
+
+  getUTMParams() {
+    const params = new URLSearchParams(window.location.search);
+    const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+    const data = {};
+    utmKeys.forEach(key => {
+      const val = params.get(key);
+      if (val) data[key] = val;
+    });
+    data.page_url = window.location.href;
+    if (document.referrer) data.referrer = document.referrer;
+    return data;
+  },
+
   createRegistrationForm(containerId, variant = 'default') {
     const container = document.getElementById(containerId);
     if (!container) return;
@@ -75,8 +90,14 @@ const Components = {
       `<option value="${c.code}" ${c.code === '+34' ? 'selected' : ''}>${c.label}</option>`
     ).join('');
 
+    const utmParams = this.getUTMParams();
+    const hiddenFields = Object.entries(utmParams).map(
+      ([k, v]) => `<input type="hidden" name="${k}" value="${v.replace(/"/g, '&quot;')}">`
+    ).join('');
+
     container.innerHTML = `
-      <form class="${formClass}" action="TU_WEBHOOK_GHL_AQUI" method="POST">
+      <form class="${formClass}" action="${this.WEBHOOK_URL}" method="POST">
+        ${hiddenFields}
         <div class="reg-form__field">
           <label class="reg-form__label">Nombre</label>
           <input type="text" name="name" class="reg-form__input" placeholder="Tu nombre completo" required>
@@ -101,7 +122,6 @@ const Components = {
     `;
 
     const form = container.querySelector('form');
-    const isPlaceholder = form.action.includes('TU_WEBHOOK_GHL_AQUI');
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -110,17 +130,13 @@ const Components = {
       btn.disabled = true;
       textEl.textContent = 'Registrando...';
 
-      if (isPlaceholder) {
-        setTimeout(() => { window.location.href = 'gracias.html'; }, 600);
-      } else {
-        const formData = new FormData(form);
-        fetch(form.action, {
-          method: 'POST',
-          body: formData
-        })
-        .then(() => { window.location.href = 'gracias.html'; })
-        .catch(() => { window.location.href = 'gracias.html'; });
-      }
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: formData
+      })
+      .then(() => { window.location.href = 'gracias.html'; })
+      .catch(() => { window.location.href = 'gracias.html'; });
     });
   },
 

@@ -1799,6 +1799,8 @@ h1, h2, h3, h4 {
   transform: translateX(0);
 }
 
+.show-mobile { display: none; }
+
 /* --- WhatsApp CTA Button --- */
 .gracias-whatsapp-btn {
   display: inline-flex;
@@ -1851,7 +1853,7 @@ h1, h2, h3, h4 {
 
   .cards-grid {
     grid-template-columns: 1fr;
-    max-width: 480px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1862,7 +1864,9 @@ h1, h2, h3, h4 {
   }
 
   .stacking-card__visual {
-    max-height: 250px;
+    aspect-ratio: 16 / 9;
+    max-height: none;
+    width: 100%;
   }
 
   .about__grid {
@@ -1981,8 +1985,37 @@ h1, h2, h3, h4 {
     max-width: 100%;
   }
 
+  .reg-form--hero {
+    padding: 1.5rem;
+  }
+
+  .reg-form__input,
+  .reg-form__select {
+    padding: 0.9rem 1rem;
+  }
+
+  .reg-form__select {
+    padding-right: 1.8rem;
+  }
+
+  .hero__form-side {
+    max-width: 100%;
+  }
+
+  .gracias-whatsapp-btn {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .hide-mobile { display: none; }
+  .show-mobile { display: inline; }
+
+  .gracias-event__details {
+    grid-template-columns: 1fr;
+  }
+
   .details__grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1rem;
   }
 

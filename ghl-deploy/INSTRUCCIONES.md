@@ -82,7 +82,7 @@ Para CADA página del funnel:
 2. Crea un nuevo Workflow
 3. Añade un trigger **"Inbound Webhook"**
 4. Copia la URL del webhook
-5. En los archivos BODY_CONTENT de la landing y gracias, busca `TU_WEBHOOK_GHL_AQUI` y reemplázalo por la URL real del webhook
+5. La URL del webhook ya está configurada en todos los archivos BODY_CONTENT. Los formularios capturan automáticamente los parámetros UTM de la URL
 6. Configura las acciones del workflow (crear contacto, enviar email de confirmación, etc.)
 
 ---

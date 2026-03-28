@@ -84,6 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 0.1);
   }
 
+  const heroBadge = document.querySelector('.gracias-hero .hero__badge');
+  if (heroBadge) {
+    tl.fromTo(heroBadge,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.5 }, 0.15);
+  }
+
   tl.fromTo('.gracias-hero__line1',
       { opacity: 0, y: 30 },
       { opacity: 1, y: 0, duration: 0.7 }, 0.3)
@@ -93,6 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
     .fromTo('.gracias-hero__subtitle',
       { opacity: 0, y: 20 },
       { opacity: 1, y: 0, duration: 0.6 }, 0.6);
+
+  const heroCtaSide = document.querySelector('.gracias-hero__cta-side');
+  if (heroCtaSide) {
+    tl.fromTo(heroCtaSide,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.6 }, 0.75);
+  }
 
   const reveals = document.querySelectorAll('.gracias-reveal');
   reveals.forEach((el) => {

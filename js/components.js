@@ -71,11 +71,10 @@ const Components = {
     const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
     const data = {};
     utmKeys.forEach(key => {
-      const val = params.get(key);
-      if (val) data[key] = val;
+      data[key] = params.get(key) || '';
     });
     data.page_url = window.location.href;
-    if (document.referrer) data.referrer = document.referrer;
+    data.referrer = document.referrer || '';
     return data;
   },
 
@@ -131,6 +130,8 @@ const Components = {
       textEl.textContent = 'Registrando...';
 
       const formData = new FormData(form);
+      formData.append('full_phone', (formData.get('country_code') || '') + (formData.get('phone') || ''));
+
       fetch(form.action, {
         method: 'POST',
         body: formData

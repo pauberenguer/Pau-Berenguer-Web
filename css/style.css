@@ -662,6 +662,11 @@ h1, h2, h3, h4 {
   will-change: transform, filter, opacity;
 }
 
+.stacking-card:last-child {
+  min-height: auto;
+  padding-bottom: 0;
+}
+
 .stacking-card__inner {
   max-width: 1340px;
   width: 100%;
@@ -1488,20 +1493,14 @@ h1, h2, h3, h4 {
   pointer-events: none;
 }
 
-.gracias-hero__grid {
+.gracias-hero__content {
   position: relative;
   z-index: 2;
-}
-
-.gracias-hero__text {
-  text-align: left;
-}
-
-.gracias-hero__cta-side {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  opacity: 1;
+  text-align: center;
+  gap: 1.5rem;
 }
 
 /* --- Animated Check --- */
@@ -1580,7 +1579,7 @@ h1, h2, h3, h4 {
 
 .gracias-hero__subtitle {
   font-size: clamp(1rem, 2vw, 1.2rem);
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.85);
   max-width: 640px;
   line-height: 1.7;
   opacity: 0;
@@ -2086,24 +2085,13 @@ h1, h2, h3, h4 {
     padding: 6rem 0 4rem;
   }
 
-  .gracias-hero__cta-side {
-    justify-content: flex-start;
-  }
-
-  .gracias-hero__title {
-    gap: 0.5rem;
-  }
-
-  .gracias-hero__line1 {
-    font-size: 2.6rem;
-    display: block;
-    margin-bottom: 0.4rem;
+  .gracias-hero__content {
+    align-items: flex-start;
+    text-align: left;
   }
 
   .gracias-hero__line2 {
     font-size: 3.2rem;
-    display: block;
-    margin-bottom: 1.5rem;
   }
 
   .gracias-hero__subtitle {

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
      ------------------------------------------------ */
   const CONFIG = {
     dia: 'Martes',
-    fecha: 'Martes, 7 de Abril',
+    fecha: 'Martes, 14 de Abril',
     hora_espana: '19:00',
     hora_mexico: '12:00',
     hora_argentina: '14:00'

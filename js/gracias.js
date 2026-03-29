@@ -4,10 +4,14 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  setTimeout(() => {
+    window.location.href = 'https://chat.whatsapp.com/Cp7B8XUCS4DAnka7agL7T7';
+  }, 5000);
+
   /* ------------------------------------------------
-     COUNTDOWN — Target: Martes 7 Abril 2026, 19:00 CEST
+     COUNTDOWN — Target: Martes 14 Abril 2026, 19:00 CEST
      ------------------------------------------------ */
-  const EVENT_DATE = new Date('2026-04-07T19:00:00+02:00');
+  const EVENT_DATE = new Date('2026-04-14T19:00:00+02:00');
 
   const cdDays = document.getElementById('cd-days');
   const cdHours = document.getElementById('cd-hours');
@@ -91,21 +95,18 @@ document.addEventListener('DOMContentLoaded', () => {
       { opacity: 1, y: 0, duration: 0.5 }, 0.15);
   }
 
-  tl.fromTo('.gracias-hero__line1',
+  tl.fromTo('.gracias-hero__line2',
       { opacity: 0, y: 30 },
       { opacity: 1, y: 0, duration: 0.7 }, 0.3)
-    .fromTo('.gracias-hero__line2',
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.7 }, 0.45)
     .fromTo('.gracias-hero__subtitle',
       { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.6 }, 0.6);
+      { opacity: 1, y: 0, duration: 0.6 }, 0.5);
 
-  const heroCtaSide = document.querySelector('.gracias-hero__cta-side');
-  if (heroCtaSide) {
-    tl.fromTo(heroCtaSide,
+  const heroBtn = document.querySelector('.gracias-hero .gracias-whatsapp-btn');
+  if (heroBtn) {
+    tl.fromTo(heroBtn,
       { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.6 }, 0.75);
+      { opacity: 1, y: 0, duration: 0.6 }, 0.65);
   }
 
   const reveals = document.querySelectorAll('.gracias-reveal');

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setTimeout(() => {
     window.location.href = 'https://chat.whatsapp.com/Cp7B8XUCS4DAnka7agL7T7';
-  }, 5000);
+  }, 10000);
 
   /* ------------------------------------------------
      COUNTDOWN — Target: Martes 14 Abril 2026, 19:00 CEST

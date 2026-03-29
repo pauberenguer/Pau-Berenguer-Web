@@ -650,6 +650,7 @@ h1, h2, h3, h4 {
    ============================================ */
 .stacking-section {
   position: relative;
+  background: var(--color-bg);
 }
 
 .stacking-card {
@@ -1261,6 +1262,8 @@ h1, h2, h3, h4 {
 .reg-form__phone {
   display: flex;
   gap: 0.5rem;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .reg-form__select {
@@ -1273,6 +1276,8 @@ h1, h2, h3, h4 {
   font-size: 0.82rem;
   cursor: pointer;
   min-width: 100px;
+  max-width: 45%;
+  flex-shrink: 0;
   transition: border-color 0.3s ease;
   appearance: none;
 }
@@ -1284,6 +1289,7 @@ h1, h2, h3, h4 {
 
 .reg-form__input--phone {
   flex: 1;
+  min-width: 0;
 }
 
 .reg-form__submit {
@@ -1810,6 +1816,7 @@ h1, h2, h3, h4 {
 
 /* --- WhatsApp CTA Button --- */
 .gracias-whatsapp-btn {
+  opacity: 0;
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;

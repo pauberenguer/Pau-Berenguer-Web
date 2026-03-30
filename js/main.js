@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dia: 'Martes',
     fecha: 'Martes, 14 de Abril',
     hora_espana: '19:00',
-    hora_mexico: '12:00',
+    hora_mexico: '11:00',
     hora_argentina: '14:00'
   };
 

@@ -13,8 +13,10 @@ ghl-deploy/
 │   └── BODY_CONTENT.html     ← Para Custom JS/HTML element (página de gracias)
 ├── 3-politica-privacidad/
 │   └── BODY_CONTENT.html     ← Para Custom JS/HTML element (política privacidad)
-└── 4-terminos/
-    └── BODY_CONTENT.html     ← Para Custom JS/HTML element (términos)
+├── 4-terminos/
+│   └── BODY_CONTENT.html     ← Para Custom JS/HTML element (términos)
+└── 5-optin/
+    └── BODY_CONTENT.html     ← Para Custom JS/HTML element (optin para ads, webhook distinto)
 ```
 
 ---
@@ -42,6 +44,7 @@ ghl-deploy/
    - Step 2: **Gracias** (path: `/gracias`)
    - Step 3: **Política de Privacidad** (path: `/politica-privacidad`)
    - Step 4: **Términos y Condiciones** (path: `/terminos`)
+   - Step 5: **Optin Ads** (path: `/optin`) — Landing idéntica pero con webhook separado para tráfico de ads
 5. Ve a **Settings > Domains** y asigna tu dominio
 
 ---
@@ -72,6 +75,7 @@ Para CADA página del funnel:
    - Gracias → `2-gracias/BODY_CONTENT.html`
    - Política → `3-politica-privacidad/BODY_CONTENT.html`
    - Términos → `4-terminos/BODY_CONTENT.html`
+   - Optin Ads → `5-optin/BODY_CONTENT.html`
 5. La foto de Pau ya tiene la URL de GHL Media Library configurada (no necesitas cambiar nada)
 
 ---

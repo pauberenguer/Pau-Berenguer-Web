@@ -5,7 +5,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   setTimeout(() => {
-    window.location.href = 'https://chat.whatsapp.com/Cp7B8XUCS4DAnka7agL7T7';
+    window.location.href = 'https://chat.whatsapp.com/IUSY2IjIw0oEfAkYMS5Mzz';
   }, 10000);
 
   /* ------------------------------------------------

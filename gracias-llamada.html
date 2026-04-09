@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="a">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Llamada Confirmada! — AI Agency Accelerator</title>
+  <meta name="description" content="Tu llamada para el AI Agency Accelerator está confirmada. Mira este vídeo importante antes de que hablemos.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Google Fonts — All 4 theme combos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&family=Sora:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ========== Loom video wrapper ========== */
+    /* Hero variant with video — natural height, not forced to 100dvh */
+    .gracias-hero--with-video {
+      min-height: 0;
+      padding: 9rem 0 6rem;
+    }
+    @media (max-width: 640px) {
+      .gracias-hero--with-video {
+        padding: 7rem 0 4rem;
+      }
+    }
+    .gracias-video {
+      width: 100%;
+      max-width: 1080px;
+      margin: 2.5rem auto 0;
+      padding: 0;
+      align-self: center;
+    }
+    .gracias-video__frame {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.08);
+      background: #000;
+    }
+    .gracias-video__frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    @media (max-width: 640px) {
+      .gracias-video { margin-top: 2rem; }
+    }
+  </style>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+  <!-- Noise Overlay -->
+  <svg class="noise-overlay" xmlns="http://www.w3.org/2000/svg">
+    <filter id="noiseFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#noiseFilter)"/>
+  </svg>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="navbar__logo">Pau Berenguer</a>
+    <div class="navbar__links">
+      <a href="index.html#pain-points" class="navbar__link">El Problema</a>
+      <a href="index.html#philosophy" class="navbar__link">Qué Aprenderás</a>
+      <a href="index.html#details" class="navbar__link">Detalles</a>
+      <a href="index.html#about" class="navbar__link">Sobre Mí</a>
+      <a href="index.html#faq" class="navbar__link">FAQ</a>
+    </div>
+    <a href="https://chat.whatsapp.com/IUSY2IjIw0oEfAkYMS5Mzz" target="_blank" rel="noopener noreferrer" class="navbar__cta">
+      <span class="btn-bg"></span>
+      Unirme a la Comunidad
+    </a>
+  </nav>
+
+  <!-- ========== HERO — Confirmation ========== -->
+  <section class="gracias-hero gracias-hero--with-video">
+    <div class="gracias-hero__bg"></div>
+    <div class="container gracias-hero__content">
+
+      <div class="hero__badge">
+        <span class="pulse-dot"></span>
+        AI Agency Accelerator
+      </div>
+
+      <h1 id="gracias-title">
+        <span class="gracias-hero__line2">Tu Llamada Está <span class="accent">Confirmada.</span></span>
+      </h1>
+
+      <p class="gracias-hero__subtitle" id="gracias-subtitle">Antes de que hablemos, mira el vídeo de abajo. Te explico cómo funciona el AI Agency Accelerator y cómo aprovechar la llamada.</p>
+
+      <!-- Loom Video -->
+      <div class="gracias-video gracias-reveal">
+        <div class="gracias-video__frame">
+          <iframe
+            src="https://www.loom.com/embed/f228f0ac1cee456f9d35dba934b32398?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true&hide_speed=false"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== STEPS — How to prepare ========== -->
+  <section class="section gracias-steps" id="gracias-steps">
+    <div class="container">
+      <div class="section__badge gracias-reveal"><span class="badge-dot"></span>Antes de la Llamada</div>
+      <h2 class="section__title gracias-reveal">Prepárate En 3 Pasos</h2>
+      <p class="section__subtitle gracias-reveal">La llamada es 1 a 1 y dura alrededor de 1 hora. Para sacarle el máximo partido y que podamos ir al grano, haz esto antes de que hablemos.</p>
+
+      <div class="gracias-steps__grid">
+        <div class="gracias-step gracias-reveal">
+          <div class="gracias-step__number">01</div>
+          <div class="gracias-step__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="23 7 16 12 23 17 23 7"/>
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+            </svg>
+          </div>
+          <h3 class="gracias-step__title">Mira el Vídeo Entero</h3>
+          <p class="gracias-step__desc">En el vídeo de arriba te explico cómo funciona el programa, qué resultados puedes esperar y cómo aprovechar la llamada.</p>
+        </div>
+
+        <div class="gracias-step gracias-reveal">
+          <div class="gracias-step__number">02</div>
+          <div class="gracias-step__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <h3 class="gracias-step__title">Añádela a tu Calendario</h3>
+          <p class="gracias-step__desc">Revisa el email de confirmación y añade la llamada a tu calendario. Llega 2 minutos antes para que no se te pase.</p>
+        </div>
+
+        <div class="gracias-step gracias-reveal">
+          <div class="gracias-step__number">03</div>
+          <div class="gracias-step__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <h3 class="gracias-step__title">Piensa en tu Situación</h3>
+          <p class="gracias-step__desc">Ven con claridad sobre dónde estás hoy, qué quieres conseguir y qué te está frenando. Cuanto más concreto, mejor podré ayudarte.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CALL DETAILS ========== -->
+  <section class="section gracias-event dark-section" id="gracias-event">
+    <div class="gracias-event__texture"></div>
+    <div class="container gracias-event__content">
+      <div class="section__badge section__badge--light gracias-reveal"><span class="badge-dot"></span>Detalles De La Llamada</div>
+      <h2 class="section__title gracias-reveal" style="color:#fff;">Una Conversación 1 a 1</h2>
+      <p class="section__subtitle gracias-reveal" style="color:rgba(255,255,255,0.5);">Esta llamada es para ver si el AI Agency Accelerator encaja con tu situación. Si encaja, te explico cómo trabajamos.</p>
+
+      <div class="gracias-event__details gracias-reveal">
+        <div class="gracias-event__detail">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div>
+            <span class="gracias-event__label">Duración</span>
+            <span class="gracias-event__value">1 hora</span>
+          </div>
+        </div>
+        <div class="gracias-event__detail">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="M15 10l4.553-2.276A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1-1.447.894L15 14M5 18h8a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2z"/></svg>
+          <div>
+            <span class="gracias-event__label">Formato</span>
+            <span class="gracias-event__value">Videollamada 1 a 1</span>
+          </div>
+        </div>
+        <div class="gracias-event__detail">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <div>
+            <span class="gracias-event__label">Con</span>
+            <span class="gracias-event__value">Pau Berenguer</span>
+          </div>
+        </div>
+        <div class="gracias-event__detail">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div>
+            <span class="gracias-event__label">Estado</span>
+            <span class="gracias-event__value" style="color: var(--color-accent);">CONFIRMADA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA COMMUNITY ========== -->
+  <section class="section gracias-community" id="gracias-community">
+    <div class="container gracias-community__inner">
+      <div class="section__badge gracias-reveal"><span class="badge-dot"></span>Comunidad</div>
+      <h2 class="section__title gracias-reveal">Mientras Esperas La Llamada</h2>
+      <p class="section__subtitle gracias-reveal">Únete a la comunidad de +8.000 personas aprendiendo IA. Ahí comparto contenido exclusivo<span class="hide-mobile">, plantillas y guías</span>.</p>
+      <a href="https://chat.whatsapp.com/IUSY2IjIw0oEfAkYMS5Mzz" target="_blank" rel="noopener noreferrer" class="gracias-community__btn gracias-reveal">
+        <span class="btn-bg"></span>
+        Unirme a la Comunidad
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__row">
+        <div class="footer__copy">
+          Pau Berenguer &copy; 2026 · Todos los Derechos Reservados · <a href="politica-privacidad.html">Política de Privacidad</a> · <a href="terminos.html">Términos y Condiciones</a>
+        </div>
+        <div class="footer__social" id="footer-social" data-component="social-links"></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/components.js"></script>
+  <script src="js/gracias-llamada.js"></script>
+
+</body>
+</html>

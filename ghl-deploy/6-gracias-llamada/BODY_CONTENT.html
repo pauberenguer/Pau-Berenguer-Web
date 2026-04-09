@@ -1,0 +1,489 @@
+<!--
+  GHL — Contenido del body (gracias-llamada)
+  Pegar en: elemento Custom JS/HTML del funnel GoHighLevel.
+  Incluye: markup + scripts inline. Sin CSS (Custom CSS aparte).
+  Sin <head>: fuentes y GSAP van en Header Tracking Code.
+  Enlaces internos sin .html (rutas de funnel GHL).
+-->
+
+<script>
+(function(){
+  var t = 'a';
+  document.documentElement.setAttribute('data-theme', t);
+  if (typeof gsap === 'undefined') {
+    var s1 = document.createElement('script');
+    s1.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+    document.head.appendChild(s1);
+    var s2 = document.createElement('script');
+    s2.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
+    document.head.appendChild(s2);
+  }
+})();
+</script>
+
+<style>
+  /* ========== Loom video wrapper ========== */
+  .gracias-hero--with-video {
+    min-height: 0;
+    padding: 9rem 0 6rem;
+  }
+  @media (max-width: 640px) {
+    .gracias-hero--with-video {
+      padding: 7rem 0 4rem;
+    }
+  }
+  .gracias-video {
+    width: 100%;
+    max-width: 1080px;
+    margin: 2.5rem auto 0;
+    padding: 0;
+    align-self: center;
+  }
+  .gracias-video__frame {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 */
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.08);
+    background: #000;
+  }
+  .gracias-video__frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  @media (max-width: 640px) {
+    .gracias-video { margin-top: 2rem; }
+  }
+</style>
+
+  <!-- Noise Overlay -->
+  <svg class="noise-overlay" xmlns="http://www.w3.org/2000/svg">
+    <filter id="noiseFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#noiseFilter)"/>
+  </svg>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <a href="/" class="navbar__logo">Pau Berenguer</a>
+    <div class="navbar__links">
+      <a href="/#pain-points" class="navbar__link">El Problema</a>
+      <a href="/#philosophy" class="navbar__link">Qu&#233; Aprender&#225;s</a>
+      <a href="/#details" class="navbar__link">Detalles</a>
+      <a href="/#about" class="navbar__link">Sobre M&#237;</a>
+      <a href="/#faq" class="navbar__link">FAQ</a>
+    </div>
+    <a href="https://chat.whatsapp.com/IUSY2IjIw0oEfAkYMS5Mzz" target="_blank" rel="noopener noreferrer" class="navbar__cta">
+      <span class="btn-bg"></span>
+      Unirme a la Comunidad
+    </a>
+  </nav>
+
+  <!-- ========== HERO — Confirmation ========== -->
+  <section class="gracias-hero gracias-hero--with-video">
+    <div class="gracias-hero__bg"></div>
+    <div class="container gracias-hero__content">
+
+      <div class="hero__badge">
+        <span class="pulse-dot"></span>
+        AI Agency Accelerator
+      </div>
+
+      <h1 id="gracias-title">
+        <span class="gracias-hero__line2">Tu Llamada Est&#225; <span class="accent">Confirmada.</span></span>
+      </h1>
+
+      <p class="gracias-hero__subtitle" id="gracias-subtitle">Antes de que hablemos, mira el v&#237;deo de abajo. Te explico c&#243;mo funciona el AI Agency Accelerator y c&#243;mo aprovechar la llamada.</p>
+
+      <!-- Loom Video -->
+      <div class="gracias-video gracias-reveal">
+        <div class="gracias-video__frame">
+          <iframe
+            src="https://www.loom.com/embed/f228f0ac1cee456f9d35dba934b32398?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true&hide_speed=false"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== STEPS — How to prepare ========== -->
+  <section class="section gracias-steps" id="gracias-steps">
+    <div class="container">
+      <div class="section__badge gracias-reveal"><span class="badge-dot"></span>Antes de la Llamada</div>
+      <h2 class="section__title gracias-reveal">Prep&#225;rate En 3 Pasos</h2>
+      <p class="section__subtitle gracias-reveal">La llamada es 1 a 1 y dura alrededor de 1 hora. Para sacarle el m&#225;ximo partido y que podamos ir al grano, haz esto antes de que hablemos.</p>
+
+      <div class="gracias-steps__grid">
+        <div class="gracias-step gracias-reveal">
+          <div class="gracias-step__number">01</div>
+          <div class="gracias-step__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="23 7 16 12 23 17 23 7"/>
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+            </svg>
+          </div>
+          <h3 class="gracias-step__title">Mira el V&#237;deo Entero</h3>
+          <p class="gracias-step__desc">En el v&#237;deo de arriba te explico c&#243;mo funciona el programa, qu&#233; resultados puedes esperar y c&#243;mo aprovechar la llamada.</p>
+        </div>
+
+        <div class="gracias-step gracias-reveal">
+          <div class="gracias-step__number">02</div>
+          <div class="gracias-step__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <h3 class="gracias-step__title">A&#241;&#225;dela a tu Calendario</h3>
+          <p class="gracias-step__desc">Revisa el email de confirmaci&#243;n y a&#241;ade la llamada a tu calendario. Llega 2 minutos antes para que no se te pase.</p>
+        </div>
+
+        <div class="gracias-step gracias-reveal">
+          <div class="gracias-step__number">03</div>
+          <div class="gracias-step__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <h3 class="gracias-step__title">Piensa en tu Situaci&#243;n</h3>
+          <p class="gracias-step__desc">Ven con claridad sobre d&#243;nde est&#225;s hoy, qu&#233; quieres conseguir y qu&#233; te est&#225; frenando. Cuanto m&#225;s concreto, mejor podr&#233; ayudarte.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CALL DETAILS ========== -->
+  <section class="section gracias-event dark-section" id="gracias-event">
+    <div class="gracias-event__texture"></div>
+    <div class="container gracias-event__content">
+      <div class="section__badge section__badge--light gracias-reveal"><span class="badge-dot"></span>Detalles De La Llamada</div>
+      <h2 class="section__title gracias-reveal" style="color:#fff;">Una Conversaci&#243;n 1 a 1</h2>
+      <p class="section__subtitle gracias-reveal" style="color:rgba(255,255,255,0.5);">Esta llamada es para ver si el AI Agency Accelerator encaja con tu situaci&#243;n. Si encaja, te explico c&#243;mo trabajamos.</p>
+
+      <div class="gracias-event__details gracias-reveal">
+        <div class="gracias-event__detail">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div>
+            <span class="gracias-event__label">Duraci&#243;n</span>
+            <span class="gracias-event__value">1 hora</span>
+          </div>
+        </div>
+        <div class="gracias-event__detail">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="M15 10l4.553-2.276A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1-1.447.894L15 14M5 18h8a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2z"/></svg>
+          <div>
+            <span class="gracias-event__label">Formato</span>
+            <span class="gracias-event__value">Videollamada 1 a 1</span>
+          </div>
+        </div>
+        <div class="gracias-event__detail">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <div>
+            <span class="gracias-event__label">Con</span>
+            <span class="gracias-event__value">Pau Berenguer</span>
+          </div>
+        </div>
+        <div class="gracias-event__detail">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div>
+            <span class="gracias-event__label">Estado</span>
+            <span class="gracias-event__value" style="color: var(--color-accent);">CONFIRMADA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA COMMUNITY ========== -->
+  <section class="section gracias-community" id="gracias-community">
+    <div class="container gracias-community__inner">
+      <div class="section__badge gracias-reveal"><span class="badge-dot"></span>Comunidad</div>
+      <h2 class="section__title gracias-reveal">Mientras Esperas La Llamada</h2>
+      <p class="section__subtitle gracias-reveal">&#218;nete a la comunidad de +8.000 personas aprendiendo IA. Ah&#237; comparto contenido exclusivo<span class="hide-mobile">, plantillas y gu&#237;as</span>.</p>
+      <a href="https://chat.whatsapp.com/IUSY2IjIw0oEfAkYMS5Mzz" target="_blank" rel="noopener noreferrer" class="gracias-community__btn gracias-reveal">
+        <span class="btn-bg"></span>
+        Unirme a la Comunidad
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__row">
+        <div class="footer__copy">
+          Pau Berenguer &copy; 2026 · Todos los Derechos Reservados · <a href="/politica-privacidad">Pol&#237;tica de Privacidad</a> · <a href="/terminos">T&#233;rminos y Condiciones</a>
+        </div>
+        <div class="footer__social" id="footer-social" data-component="social-links"></div>
+      </div>
+    </div>
+  </footer>
+
+
+<script>
+/* ============================================
+   COMPONENTS.JS — Reusable UI Components
+   ============================================ */
+
+const Components = {
+
+  COUNTRY_CODES: [
+    { code: '+34', label: '\u{1F1EA}\u{1F1F8} +34', flag: '\u{1F1EA}\u{1F1F8}' },
+    { code: '+52', label: '\u{1F1F2}\u{1F1FD} +52', flag: '\u{1F1F2}\u{1F1FD}' },
+    { code: '+54', label: '\u{1F1E6}\u{1F1F7} +54', flag: '\u{1F1E6}\u{1F1F7}' },
+    { code: '+57', label: '\u{1F1E8}\u{1F1F4} +57', flag: '\u{1F1E8}\u{1F1F4}' },
+    { code: '+56', label: '\u{1F1E8}\u{1F1F1} +56', flag: '\u{1F1E8}\u{1F1F1}' },
+    { code: '+51', label: '\u{1F1F5}\u{1F1EA} +51', flag: '\u{1F1F5}\u{1F1EA}' },
+    { code: '+593', label: '\u{1F1EA}\u{1F1E8} +593', flag: '\u{1F1EA}\u{1F1E8}' },
+    { code: '+598', label: '\u{1F1FA}\u{1F1FE} +598', flag: '\u{1F1FA}\u{1F1FE}' },
+    { code: '+58', label: '\u{1F1FB}\u{1F1EA} +58', flag: '\u{1F1FB}\u{1F1EA}' },
+    { code: '+591', label: '\u{1F1E7}\u{1F1F4} +591', flag: '\u{1F1E7}\u{1F1F4}' },
+    { code: '+595', label: '\u{1F1F5}\u{1F1FE} +595', flag: '\u{1F1F5}\u{1F1FE}' },
+    { code: '+506', label: '\u{1F1E8}\u{1F1F7} +506', flag: '\u{1F1E8}\u{1F1F7}' },
+    { code: '+507', label: '\u{1F1F5}\u{1F1E6} +507', flag: '\u{1F1F5}\u{1F1E6}' },
+    { code: '+502', label: '\u{1F1EC}\u{1F1F9} +502', flag: '\u{1F1EC}\u{1F1F9}' },
+    { code: '+504', label: '\u{1F1ED}\u{1F1F3} +504', flag: '\u{1F1ED}\u{1F1F3}' },
+    { code: '+503', label: '\u{1F1F8}\u{1F1FB} +503', flag: '\u{1F1F8}\u{1F1FB}' },
+    { code: '+505', label: '\u{1F1F3}\u{1F1EE} +505', flag: '\u{1F1F3}\u{1F1EE}' },
+    { code: '+53', label: '\u{1F1E8}\u{1F1FA} +53', flag: '\u{1F1E8}\u{1F1FA}' },
+    { code: '+1809', label: '\u{1F1E9}\u{1F1F4} +1809', flag: '\u{1F1E9}\u{1F1F4}' },
+    { code: '+1787', label: '\u{1F1F5}\u{1F1F7} +1787', flag: '\u{1F1F5}\u{1F1F7}' },
+    { code: '+240', label: '\u{1F1EC}\u{1F1F6} +240', flag: '\u{1F1EC}\u{1F1F6}' },
+    { code: '+55', label: '\u{1F1E7}\u{1F1F7} +55', flag: '\u{1F1E7}\u{1F1F7}' },
+    { code: '+1', label: '\u{1F1FA}\u{1F1F8} +1', flag: '\u{1F1FA}\u{1F1F8}' },
+    { code: '+44', label: '\u{1F1EC}\u{1F1E7} +44', flag: '\u{1F1EC}\u{1F1E7}' },
+    { code: '+49', label: '\u{1F1E9}\u{1F1EA} +49', flag: '\u{1F1E9}\u{1F1EA}' },
+    { code: '+33', label: '\u{1F1EB}\u{1F1F7} +33', flag: '\u{1F1EB}\u{1F1F7}' },
+    { code: '+39', label: '\u{1F1EE}\u{1F1F9} +39', flag: '\u{1F1EE}\u{1F1F9}' },
+    { code: '+351', label: '\u{1F1F5}\u{1F1F9} +351', flag: '\u{1F1F5}\u{1F1F9}' },
+    { code: '+376', label: '\u{1F1E6}\u{1F1E9} +376', flag: '\u{1F1E6}\u{1F1E9}' },
+    { code: '+372', label: '\u{1F1EA}\u{1F1EA} +372', flag: '\u{1F1EA}\u{1F1EA}' },
+    { code: '+353', label: '\u{1F1EE}\u{1F1EA} +353', flag: '\u{1F1EE}\u{1F1EA}' },
+    { code: '+352', label: '\u{1F1F1}\u{1F1FA} +352', flag: '\u{1F1F1}\u{1F1FA}' },
+    { code: '+41', label: '\u{1F1E8}\u{1F1ED} +41', flag: '\u{1F1E8}\u{1F1ED}' },
+    { code: '+31', label: '\u{1F1F3}\u{1F1F1} +31', flag: '\u{1F1F3}\u{1F1F1}' },
+    { code: '+32', label: '\u{1F1E7}\u{1F1EA} +32', flag: '\u{1F1E7}\u{1F1EA}' },
+    { code: '+43', label: '\u{1F1E6}\u{1F1F9} +43', flag: '\u{1F1E6}\u{1F1F9}' },
+    { code: '+45', label: '\u{1F1E9}\u{1F1F0} +45', flag: '\u{1F1E9}\u{1F1F0}' },
+    { code: '+47', label: '\u{1F1F3}\u{1F1F4} +47', flag: '\u{1F1F3}\u{1F1F4}' },
+    { code: '+48', label: '\u{1F1F5}\u{1F1F1} +48', flag: '\u{1F1F5}\u{1F1F1}' },
+    { code: '+46', label: '\u{1F1F8}\u{1F1EA} +46', flag: '\u{1F1F8}\u{1F1EA}' },
+    { code: '+358', label: '\u{1F1EB}\u{1F1EE} +358', flag: '\u{1F1EB}\u{1F1EE}' },
+  ],
+
+  SOCIAL_LINKS: [
+    {
+      name: 'YouTube',
+      url: 'https://www.youtube.com/@PauBerenguerAI',
+      svg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>'
+    },
+    {
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/pauberenguer-ai/',
+      svg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>'
+    },
+    {
+      name: 'Instagram',
+      url: 'https://www.instagram.com/pauberenguer_/',
+      svg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>'
+    },
+    {
+      name: 'Skool',
+      url: 'https://chat.whatsapp.com/IUSY2IjIw0oEfAkYMS5Mzz',
+      svg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>'
+    }
+  ],
+
+  WEBHOOK_URL: 'https://services.leadconnectorhq.com/hooks/rlbnQvjWkZmIXqZFa4EI/webhook-trigger/222ac678-032f-42ef-a820-3aa0914e614f',
+
+  getUTMParams() {
+    const params = new URLSearchParams(window.location.search);
+    const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+    const data = {};
+    utmKeys.forEach(key => {
+      const val = params.get(key);
+      if (val) data[key] = val;
+    });
+    data.page_url = window.location.href;
+    if (document.referrer) data.referrer = document.referrer;
+    return data;
+  },
+
+  createRegistrationForm(containerId, variant = 'default') {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const isHero = variant === 'hero';
+    const formClass = isHero ? 'reg-form reg-form--hero' : 'reg-form';
+
+    const optionsHTML = this.COUNTRY_CODES.map(c =>
+      `<option value="${c.code}" ${c.code === '+34' ? 'selected' : ''}>${c.label}</option>`
+    ).join('');
+
+    const utmParams = this.getUTMParams();
+    const hiddenFields = Object.entries(utmParams).map(
+      ([k, v]) => `<input type="hidden" name="${k}" value="${v.replace(/"/g, '&quot;')}">`
+    ).join('');
+
+    container.innerHTML = `
+      <form class="${formClass}" action="${this.WEBHOOK_URL}" method="POST">
+        ${hiddenFields}
+        <div class="reg-form__field">
+          <label class="reg-form__label">Nombre</label>
+          <input type="text" name="name" class="reg-form__input" placeholder="Tu nombre completo" required>
+        </div>
+        <div class="reg-form__field">
+          <label class="reg-form__label">Email</label>
+          <input type="email" name="email" class="reg-form__input" placeholder="tu@email.com" required>
+        </div>
+        <div class="reg-form__field">
+          <label class="reg-form__label">Tel&#233;fono</label>
+          <div class="reg-form__phone">
+            <select name="country_code" class="reg-form__select">${optionsHTML}</select>
+            <input type="tel" name="phone" class="reg-form__input reg-form__input--phone" placeholder="612 345 678" required>
+          </div>
+        </div>
+        <button type="submit" class="reg-form__submit">
+          <span class="btn-bg"></span>
+          <span class="reg-form__submit-text">Reserva Tu Plaza Gratis</span>
+        </button>
+        <p class="reg-form__consent">Al registrarte aceptas nuestra <a href="/politica-privacidad" target="_blank">Pol&#237;tica de Privacidad</a> y <a href="/terminos" target="_blank">T&#233;rminos y Condiciones</a>.</p>
+      </form>
+    `;
+
+    const form = container.querySelector('form');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('.reg-form__submit');
+      const textEl = form.querySelector('.reg-form__submit-text');
+      btn.disabled = true;
+      textEl.textContent = 'Registrando...';
+
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: formData
+      })
+      .then(() => { window.location.href = '/gracias'; })
+      .catch(() => { window.location.href = '/gracias'; });
+    });
+  },
+
+  createSocialLinks(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = this.SOCIAL_LINKS.map(link =>
+      `<a href="${link.url}" target="_blank" rel="noopener noreferrer" class="social-link" title="${link.name}">${link.svg}</a>`
+    ).join('');
+  },
+
+  init() {
+    document.querySelectorAll('[data-component="registration-form"]').forEach(el => {
+      this.createRegistrationForm(el.id, el.dataset.variant || 'default');
+    });
+
+    document.querySelectorAll('[data-component="social-links"]').forEach(el => {
+      this.createSocialLinks(el.id);
+    });
+  }
+};
+
+(function(){ if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => Components.init()); else Components.init(); })();
+</script>
+<script>
+document.documentElement.setAttribute('data-theme', 'a');
+</script>
+<script>
+/* ============================================
+   GRACIAS-LLAMADA.JS — Entrance Animations
+   Thank-you page after booking an AI Agency Accelerator call
+   ============================================ */
+
+(function(){
+
+  function _initGraciaLlamada() {
+
+  /* ------------------------------------------------
+     WAIT FOR GSAP
+     ------------------------------------------------ */
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    return setTimeout(_initGraciaLlamada, 100);
+  }
+
+  /* ------------------------------------------------
+     NAVBAR — Morphing on scroll
+     ------------------------------------------------ */
+  const navbar = document.getElementById('navbar');
+  const heroSection = document.querySelector('.gracias-hero');
+
+  if (navbar && heroSection) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        navbar.classList.toggle('scrolled', !entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(heroSection);
+  }
+
+  /* ------------------------------------------------
+     GSAP — Entrance animations
+     ------------------------------------------------ */
+  if (typeof gsap === 'undefined') return;
+  if (typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
+
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+  const heroBadge = document.querySelector('.gracias-hero .hero__badge');
+  if (heroBadge) {
+    tl.fromTo(heroBadge,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.5 }, 0.15);
+  }
+
+  tl.fromTo('.gracias-hero__line2',
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.7 }, 0.3)
+    .fromTo('.gracias-hero__subtitle',
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.6 }, 0.5);
+
+  const heroVideo = document.querySelector('.gracias-hero .gracias-video');
+  if (heroVideo) {
+    tl.fromTo(heroVideo,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8 }, 0.65);
+  }
+
+  const reveals = document.querySelectorAll('.gracias-reveal');
+  reveals.forEach((el) => {
+    // Skip the hero video since it's handled in the intro timeline
+    if (el.classList.contains('gracias-video') && el.closest('.gracias-hero')) return;
+    gsap.to(el, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 88%',
+        toggleActions: 'play none none none'
+      }
+    });
+  });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', _initGraciaLlamada);
+  else _initGraciaLlamada();
+})();
+</script>

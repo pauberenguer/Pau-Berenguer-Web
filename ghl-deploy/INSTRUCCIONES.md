@@ -5,8 +5,8 @@
 ```
 ghl-deploy/
 ├── INSTRUCCIONES.md          ← Este archivo
-├── HEAD_CODE.html            ← Para Tracking Code > Header (IGUAL en las 4 páginas)
-├── CUSTOM_CSS.css            ← Para Custom CSS (IGUAL en las 4 páginas)
+├── HEAD_CODE.html            ← Para Tracking Code > Header (IGUAL en todas las páginas)
+├── CUSTOM_CSS.css            ← Para Custom CSS (IGUAL en todas las páginas)
 ├── 1-landing/
 │   └── BODY_CONTENT.html     ← Para Custom JS/HTML element (landing principal)
 ├── 2-gracias/
@@ -15,8 +15,10 @@ ghl-deploy/
 │   └── BODY_CONTENT.html     ← Para Custom JS/HTML element (política privacidad)
 ├── 4-terminos/
 │   └── BODY_CONTENT.html     ← Para Custom JS/HTML element (términos)
-└── 5-optin/
-    └── BODY_CONTENT.html     ← Para Custom JS/HTML element (optin para ads, webhook distinto)
+├── 5-optin/
+│   └── BODY_CONTENT.html     ← Para Custom JS/HTML element (optin para ads, webhook distinto)
+└── 6-gracias-llamada/
+    └── BODY_CONTENT.html     ← Para Custom JS/HTML element (gracias tras reservar llamada AAA)
 ```
 
 ---
@@ -39,12 +41,13 @@ ghl-deploy/
 1. Ve a **Sites > Funnels > + Create Funnel**
 2. Elige **"Start from scratch"**
 3. Nombra el funnel: "Landing Clase IA"
-4. Crea 4 Steps (páginas), cada uno con plantilla "Blank":
+4. Crea 6 Steps (páginas), cada uno con plantilla "Blank":
    - Step 1: **Landing** (path: `/` o raíz)
    - Step 2: **Gracias** (path: `/gracias`)
    - Step 3: **Política de Privacidad** (path: `/politica-privacidad`)
    - Step 4: **Términos y Condiciones** (path: `/terminos`)
    - Step 5: **Optin Ads** (path: `/optin`) — Landing idéntica pero con webhook separado para tráfico de ads
+   - Step 6: **Gracias Llamada** (path: `/gracias-llamada`) — Confirmación tras reservar llamada del AI Agency Accelerator
 5. Ve a **Settings > Domains** y asigna tu dominio
 
 ---
@@ -76,6 +79,7 @@ Para CADA página del funnel:
    - Política → `3-politica-privacidad/BODY_CONTENT.html`
    - Términos → `4-terminos/BODY_CONTENT.html`
    - Optin Ads → `5-optin/BODY_CONTENT.html`
+   - Gracias Llamada → `6-gracias-llamada/BODY_CONTENT.html`
 5. La foto de Pau ya tiene la URL de GHL Media Library configurada (no necesitas cambiar nada)
 
 ---
